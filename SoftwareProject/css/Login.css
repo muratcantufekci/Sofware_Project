@@ -6,10 +6,10 @@
     width: 300px;
     padding: 40px;
     position: absolute;
-    top: 50%;
-    left: 51%;
+    top: 40%;
+    left: 90%;
     transform: translate(-50%,-50%);
-    background: #191919;
+    /*background: #191919;*/
     text-align: center;
 }
 .box h1{
