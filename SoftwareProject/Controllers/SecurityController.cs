@@ -10,7 +10,7 @@ namespace SoftwareProject.Controllers
 {
     public class SecurityController : Controller
     {
-        MeDiagEntities db = new MeDiagEntities();
+        MeDiagEntities1 db = new MeDiagEntities1();
         // GET: Security
         public ActionResult Login()
         {
