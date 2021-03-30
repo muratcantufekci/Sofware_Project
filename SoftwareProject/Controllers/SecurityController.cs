@@ -9,7 +9,7 @@ namespace SoftwareProject.Controllers
     public class SecurityController : Controller
     {
         // GET: Security
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
         }
