@@ -1,0 +1,19 @@
+﻿@model SoftwareProject.Models.EntityFramework.Patient
+@{
+    Layout = null;
+}
+
+
+<link href="~/css/Login.css" rel="stylesheet" />
+
+<div class="box">
+    @ViewBag.Message
+   
+    <form method="post" action="">
+        <input type="text" name="Email" placeholder="Username">
+        <input type="password" name="Password" placeholder="Password">
+        <button type="submit">Login</button>
+        <input type="button" onclick="window.location.href='/Home/SignUp'" name="" value="Sign Up">
+    </form>
+
+</div>
