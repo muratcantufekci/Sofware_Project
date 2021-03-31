@@ -24,7 +24,9 @@ namespace SoftwareProject.Controllers
             if(patientInDb != null)
             {
                 FormsAuthentication.SetAuthCookie(patientInDb.Name, false);
+                
                 return RedirectToAction("Index", "Home");
+                
             }
             else
             {
@@ -32,6 +34,32 @@ namespace SoftwareProject.Controllers
                 return View();
             }
             
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult SignUp()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SignUp(Patient patient)
+        {
+            Patient patientToAdd = new Patient();
+            patientToAdd.Name = patient.Name;
+            patientToAdd.Surname = patient.Surname;
+            patientToAdd.Password = patient.Password;
+            patientToAdd.Email = patient.Email;
+            patientToAdd.IdNumber = patient.IdNumber;
+            db.Patient.Add(patientToAdd);
+            db.SaveChanges();
+
+            return RedirectToAction("Index","Home");
         }
     }
 }

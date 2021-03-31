@@ -6,17 +6,13 @@ using System.Web.Mvc;
 
 namespace SoftwareProject.Controllers
 {
-
-    public class HomeController : Controller
+    public class AppointmentController : Controller
     {
-        // GET: Home
-
-        
+        // GET: Appointment
+        [Authorize]
         public ActionResult Index()
         {
-            
             return View();
         }
     }
-        
 }
