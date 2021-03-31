@@ -11,7 +11,8 @@ namespace SoftwareProject.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Patient
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,12 +20,17 @@ namespace SoftwareProject.Models.EntityFramework
         {
             this.Illness = new HashSet<Illness>();
         }
-    
+        
         public int Id { get; set; }
+        [Required(ErrorMessage ="Name is required")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Surname is required")]
         public string Surname { get; set; }
+        [Required(ErrorMessage = "IdNumber is required")]
         public string IdNumber { get; set; }
+        [Required(ErrorMessage = "Email is required")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

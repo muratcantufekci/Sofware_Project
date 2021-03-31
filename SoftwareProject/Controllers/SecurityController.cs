@@ -45,11 +45,18 @@ namespace SoftwareProject.Controllers
         [HttpGet]
         public ActionResult SignUp()
         {
-            return View();
+            return View(new Patient());
         }
+       
         [HttpPost]
         public ActionResult SignUp(Patient patient)
         {
+            if (!ModelState.IsValid)
+            {
+
+                return View("SignUp");
+
+            }
             Patient patientToAdd = new Patient();
             patientToAdd.Name = patient.Name;
             patientToAdd.Surname = patient.Surname;
@@ -58,8 +65,7 @@ namespace SoftwareProject.Controllers
             patientToAdd.IdNumber = patient.IdNumber;
             db.Patient.Add(patientToAdd);
             db.SaveChanges();
-
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
