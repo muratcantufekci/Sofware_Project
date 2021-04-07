@@ -63,8 +63,8 @@ namespace SoftwareProject.Controllers
                 var patientControl = db.Patient.FirstOrDefault(x => x.Email == patient.Email || x.IdNumber == patient.IdNumber);
                 if (patientControl != null)
                 {
-                    ViewBag.Message2 = "There is an account with this email or Id number";
-                    return View("SignUp");
+                    ViewBag.Message2 = "There is an account with this email or Id number please log in your account";
+                    return View("Login");
                 }
                 else
                 {
