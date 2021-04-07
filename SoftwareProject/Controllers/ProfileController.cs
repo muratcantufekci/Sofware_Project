@@ -6,18 +6,15 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace SoftwareProject.Controllers
-{    
-    public class HomeController : Controller
+{
+    public class ProfileController : Controller
     {
         MeDiagEntities1 db = new MeDiagEntities1();
-        // GET: Home
-
-
-        public ActionResult Index()
+        // GET: Profile
+        public ActionResult PatientProfile(int id)
         {
-            Patient patient = TempData["getid"] as Patient;
-            return View(patient);
+            var infoPatient = db.Patient.FirstOrDefault(x => x.Id == id);
+            return View(infoPatient);
         }
     }
-        
 }

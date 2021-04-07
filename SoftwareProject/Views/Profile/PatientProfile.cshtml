@@ -1,0 +1,36 @@
+﻿@using SoftwareProject.Models.EntityFramework
+@model Patient
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PatientProfile</title>
+</head>
+<body>
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>SURNAME</th>
+                <th>PASSWORD</th>
+                <th>EMAİL</th>
+                <th>ID NUMBER</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Name</td>
+                <td>@Model.Surname</td>
+                <td>@Model.Password</td>
+                <td>@Model.Email</td>
+                <td>@Model.IdNumber</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

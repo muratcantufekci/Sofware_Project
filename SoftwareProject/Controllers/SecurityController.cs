@@ -24,7 +24,7 @@ namespace SoftwareProject.Controllers
             if(patientInDb != null)
             {
                 FormsAuthentication.SetAuthCookie(patientInDb.Name, false);
-                
+                TempData["getid"] = patientInDb;
                 return RedirectToAction("Index", "Home");
                 
             }
@@ -57,15 +57,28 @@ namespace SoftwareProject.Controllers
                 return View("SignUp");
 
             }
-            Patient patientToAdd = new Patient();
-            patientToAdd.Name = patient.Name;
-            patientToAdd.Surname = patient.Surname;
-            patientToAdd.Password = patient.Password;
-            patientToAdd.Email = patient.Email;
-            patientToAdd.IdNumber = patient.IdNumber;
-            db.Patient.Add(patientToAdd);
-            db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            if (ModelState.IsValid)
+            {
+                Patient patientToAdd = new Patient();
+                var patientControl = db.Patient.FirstOrDefault(x => x.Email == patient.Email || x.IdNumber == patient.IdNumber);
+                if (patientControl != null)
+                {
+                    ViewBag.Message2 = "There is an account with this email or Id number";
+                    return View("SignUp");
+                }
+                else
+                {
+                    patientToAdd.Name = patient.Name;
+                    patientToAdd.Surname = patient.Surname;
+                    patientToAdd.Password = patient.Password;
+                    patientToAdd.Email = patient.Email;
+                    patientToAdd.IdNumber = patient.IdNumber;
+                    db.Patient.Add(patientToAdd);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View("SignUp");
         }
     }
 }
