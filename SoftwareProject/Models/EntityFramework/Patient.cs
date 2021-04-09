@@ -23,10 +23,10 @@ namespace SoftwareProject.Models.EntityFramework
         
         public int Id { get; set; }
         [Required(ErrorMessage ="Name is required")]
-        [RegularExpression("([a-zA-Z]+)", ErrorMessage = "Please Enter Valid Name")]
+        [RegularExpression("([A-ZÇÝÖÞÜÐ]+[a-zðýöþü]+)", ErrorMessage = "Please Enter Valid Name")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Surname is required")]
-        [RegularExpression("([a-zA-Z]+)", ErrorMessage = "Please Enter Valid Surname")]
+        [RegularExpression("([A-ZÇÝÖÞÜÐ]+[a-zçðýöþü]+ý?)", ErrorMessage = "Please Enter Valid Surname")]
         public string Surname { get; set; }
         [Required(ErrorMessage = "IdNumber is required")]
         [RegularExpression("([0-9]+)", ErrorMessage = "Please Enter Valid ID Number")]

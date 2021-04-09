@@ -3,7 +3,7 @@
 @{
     Layout = null;
 }
-
+<link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!DOCTYPE html>
 
 <html>
@@ -12,25 +12,57 @@
     <title>PatientProfile</title>
 </head>
 <body>
-    <table class="table table-bordered ">
-        <thead>
-            <tr>
-                <th>NAME</th>
-                <th>SURNAME</th>
-                <th>PASSWORD</th>
-                <th>EMAİL</th>
-                <th>ID NUMBER</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.Name</td>
-                <td>@Model.Surname</td>
-                <td>@Model.Password</td>
-                <td>@Model.Email</td>
-                <td>@Model.IdNumber</td>
-            </tr>
-        </tbody>
-    </table>
+   
+     
+    
+
+    @using (Html.BeginForm("UpdatePatient", "Profile", FormMethod.Post))
+    {
+    <div class="form-group">
+        
+        @ViewBag.UpdatedMessage
+        <br />
+        
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @readonly="readonly"})
+        <br />
+        @Html.LabelFor(x => x.Surname)
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.LabelFor(x => x.Password)
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Email)
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.IdNumber)
+        @Html.TextBoxFor(x => x.IdNumber, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+
+    </div>
+        @Html.HiddenFor(x => x.Id)
+        <button type="submit" class="btn btn-success">Update</button>
+    }
+
+    @*<table class="table table-bordered ">
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>SURNAME</th>
+                    <th>PASSWORD</th>
+                    <th>EMAİL</th>
+                    <th>ID NUMBER</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-active">
+                    <td>@Model.Name</td>
+                    <td>@Model.Surname</td>
+                    <td>@Model.Password</td>
+                    <td>@Model.Email</td>
+                    <td>@Model.IdNumber</td>
+                </tr>
+            </tbody>
+        </table>*@
 </body>
 </html>

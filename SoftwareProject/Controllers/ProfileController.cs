@@ -14,7 +14,26 @@ namespace SoftwareProject.Controllers
         public ActionResult PatientProfile(int id)
         {
             var infoPatient = db.Patient.FirstOrDefault(x => x.Id == id);
+            
             return View(infoPatient);
+        }
+        public ActionResult UpdatePatient(Patient patient)
+        {
+            var patientToUpdate = db.Patient.Find(patient.Id);
+            if(patientToUpdate == null)
+            {
+               return HttpNotFound();
+            }
+            else
+            {
+                patientToUpdate.Email = patient.Email;
+                patientToUpdate.Password = patient.Password;
+                db.SaveChanges();
+                ViewBag.UpdatedMessage= "Your informations updated succesfully!";
+                return View("PatientProfile", patientToUpdate);
+            }
+            
+            
         }
     }
 }
