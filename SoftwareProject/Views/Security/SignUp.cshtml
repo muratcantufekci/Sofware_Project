@@ -1,7 +1,12 @@
-﻿@model SoftwareProject.Models.EntityFramework.Patient
+﻿
+@model SoftwareProject.Models.EntityFramework.Patient
 @{
-    Layout = null;
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
+
+
+
 <link href="~/assets/css/Validation.css" rel="stylesheet" />
 <link href="~/assets/css/Login.css" rel="stylesheet" />
 
@@ -14,9 +19,9 @@
     <title>SignUp</title>
 </head>
 <body>
-    
+
     <div class="box">
-        @ViewBag.Message       
+        @ViewBag.Message
         <form method="post" action="">
             <input type="text" name="Name" placeholder="Name">
             @Html.ValidationMessageFor(x => x.Name)
@@ -33,7 +38,7 @@
         </form>
 
 
-    </div> 
+    </div>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

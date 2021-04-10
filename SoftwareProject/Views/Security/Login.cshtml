@@ -1,28 +1,19 @@
-﻿@model SoftwareProject.Models.EntityFramework.Patient
+﻿
+@model SoftwareProject.Models.EntityFramework.Patient
 @{
-    Layout = null;
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
-<link href="~/assets/css/Login.css" rel="stylesheet" />
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Login</title>
-</head>
-<body>
-    <div>
-        <div class="box">
-            @ViewBag.Message
-            @ViewBag.Message2
-            <form method="post" action="">
-                <input type="text" name="Email" placeholder="Username">
-                <input type="password" name="Password" placeholder="Password">
-                <button type="submit">Login</button>
-                <input type="button" onclick="window.location.href='/Security/SignUp'" name="" value="Sign Up">
-            </form>
+<div class="box">
+    @ViewBag.Message
+    @ViewBag.Message2
+    <form method="post" action="">
+        <input type="text" name="Email" placeholder="Username">
+        <input type="password" name="Password" placeholder="Password">
+        <button type="submit">Login</button>
+        <input type="button" onclick="window.location.href='/Security/SignUp'" name="" value="Sign Up">
+    </form>
 
-        </div>
-    </div>
-</body>
-</html>
+</div>
+
