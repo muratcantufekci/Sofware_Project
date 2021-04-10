@@ -96,9 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\Login.css" />
+    <Content Include="assets\css\Profile.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\css\Validation.css" />
     <Content Include="assets\img\about.jpg" />
+    <Content Include="assets\img\anonim-foto.jpg" />
     <Content Include="assets\img\apple-touch-icon.png" />
     <Content Include="assets\img\departments-1.jpg" />
     <Content Include="assets\img\departments-2.jpg" />
@@ -295,10 +297,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
-    <Content Include="Views\Profile\PatientProfile.cshtml" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Security\Login.cshtml" />
     <Content Include="Views\Security\SignUp.cshtml" />
+    <Content Include="Views\Profile\PatientProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
