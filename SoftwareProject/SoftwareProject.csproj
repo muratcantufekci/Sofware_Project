@@ -200,24 +200,24 @@
     <Content Include="images\Logo.png" />
     <Content Include="images\original.png" />
     <Content Include="images\Symptom_button.png" />
-    <Content Include="Models\EntityFramework\Model2.Context.tt">
+    <Content Include="Models\EntityFramework\Model3.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.Context.cs</LastGenOutput>
+      <DependentUpon>Model3.edmx</DependentUpon>
+      <LastGenOutput>Model3.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EntityFramework\Model2.tt">
+    <Content Include="Models\EntityFramework\Model3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.cs</LastGenOutput>
+      <DependentUpon>Model3.edmx</DependentUpon>
+      <LastGenOutput>Model3.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\EntityFramework\Model2.edmx">
+    <EntityDeploy Include="Models\EntityFramework\Model3.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model3.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EntityFramework\Model2.edmx.diagram">
-      <DependentUpon>Model2.edmx</DependentUpon>
+    <Content Include="Models\EntityFramework\Model3.edmx.diagram">
+      <DependentUpon>Model3.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -233,6 +233,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
@@ -240,49 +241,49 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Appointment.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Community.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\DAppDate.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Department.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Discharge.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Doctor.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Hospital.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Illness.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model2.Context.cs">
+    <Compile Include="Models\EntityFramework\Model3.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.Context.tt</DependentUpon>
+      <DependentUpon>Model3.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model2.cs">
+    <Compile Include="Models\EntityFramework\Model3.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model2.Designer.cs">
+    <Compile Include="Models\EntityFramework\Model3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.edmx</DependentUpon>
+      <DependentUpon>Model3.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Op_Table.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Patient.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -301,6 +302,7 @@
     <Content Include="Views\Security\Login.cshtml" />
     <Content Include="Views\Security\SignUp.cshtml" />
     <Content Include="Views\Profile\PatientProfile.cshtml" />
+    <Content Include="Views\Doctor\DoctorIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

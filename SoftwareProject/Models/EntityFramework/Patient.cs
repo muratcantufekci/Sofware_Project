@@ -20,16 +20,16 @@ namespace SoftwareProject.Models.EntityFramework
         {
             this.Illness = new HashSet<Illness>();
         }
-        
+    
         public int Id { get; set; }
         [Required(ErrorMessage ="Name is required")]
-        [RegularExpression("([A-ZÇÝÖÞÜÐ]+[a-zðýöþü]+)", ErrorMessage = "Please Enter Valid Name")]
+        [RegularExpression("([A-ZÇÝÖÞÜÐ]+[a-zðýöþü]+)", ErrorMessage ="Please Enter Valid Name")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Surname is required")]
         [RegularExpression("([A-ZÇÝÖÞÜÐ]+[a-zçðýöþü]+ý?)", ErrorMessage = "Please Enter Valid Surname")]
         public string Surname { get; set; }
         [Required(ErrorMessage = "IdNumber is required")]
-        [RegularExpression("([0-9]+)", ErrorMessage = "Please Enter Valid ID Number")]
+        [RegularExpression("([0-9]+)", ErrorMessage ="Please Enter Valid ID Number")]
         public string IdNumber { get; set; }
         [Required(ErrorMessage = "Email is required")]
         [EmailAddress(ErrorMessage ="Please enter correct mail address")]

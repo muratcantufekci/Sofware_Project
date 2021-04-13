@@ -62,7 +62,7 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     @Html.LabelFor(x => x.Password)
-                                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @type = "password" })
+                                    @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -78,9 +78,10 @@
                                 </div>
                             </div>
                             @Html.HiddenFor(x => x.Id)
+                            
                             <br />
                             <br />
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary" >Update</button>
                         }
 
                     </div>

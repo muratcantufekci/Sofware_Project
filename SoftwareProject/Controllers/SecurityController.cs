@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -10,7 +11,7 @@ namespace SoftwareProject.Controllers
 {
     public class SecurityController : Controller
     {
-        MeDiagEntities1 db = new MeDiagEntities1();
+        MeDiagEntities2 db = new MeDiagEntities2();
         // GET: Security
         public ActionResult Login()
         {
@@ -20,7 +21,8 @@ namespace SoftwareProject.Controllers
         [HttpPost]
         public ActionResult Login(Patient patient)
         {
-            var patientInDb = db.Patient.FirstOrDefault(x => x.Email == patient.Email && x.Password == patient.Password);
+            string hashpassword = Crypto.SHA256(patient.Password);
+            var patientInDb = db.Patient.FirstOrDefault(x => x.Email == patient.Email && x.Password == hashpassword);
             if(patientInDb != null)
             {
                 FormsAuthentication.SetAuthCookie(patientInDb.Name, false);
@@ -68,9 +70,10 @@ namespace SoftwareProject.Controllers
                 }
                 else
                 {
+        
                     patientToAdd.Name = patient.Name;
                     patientToAdd.Surname = patient.Surname;
-                    patientToAdd.Password = patient.Password;
+                    patientToAdd.Password = Crypto.SHA256(patient.Password);
                     patientToAdd.Email = patient.Email;
                     patientToAdd.IdNumber = patient.IdNumber;
                     db.Patient.Add(patientToAdd);
