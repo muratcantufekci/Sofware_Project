@@ -4,6 +4,7 @@
 }
 <link href="~/assets/css/styleee.css" rel="stylesheet" />
 <link href="~/assets/css/styleee.min.css" rel="stylesheet" />
+<link href="~/assets/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -15,12 +16,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/img/favicon.png">
     <title>Nice admin Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
-    <link href="../../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link href="~/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../../dist/css/style.min.css" rel="stylesheet">
+    @*@<link href="~/dist/css/style.min.css" rel="stylesheet">*@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -62,17 +63,17 @@
                             <b class="logo-icon">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                                 <!-- Dark Logo icon -->
-                                <img src="../../assets/img/logo-icon.png" alt="homepage" class="dark-logo" />
+                                <img src="~/assets/img/logo-icon.png" alt="homepage" class="dark-logo" />
                                 <!-- Light Logo icon -->
-                                <img src="../../assets/img/logo-light-icon.png" alt="homepage" class="light-logo" />
+                                <img src="~/assets/img/logo-light-icon.png" alt="homepage" class="light-logo" />
                             </b>
                             <!--End Logo icon -->
                             <!-- Logo text -->
                             <span class="logo-text">
                                 <!-- dark Logo text -->
-                                <img src="../../assets/img/logo-text.png" alt="homepage" class="dark-logo" />
+                                <img src="~/assets/img/logo-text.png" alt="homepage" class="dark-logo" />
                                 <!-- Light Logo text -->
-                                <img src="../../assets/img/logo-light-text.png" class="light-logo" alt="homepage" />
+                                <img src="~/assets/img/logo-light-text.png" class="light-logo" alt="homepage" />
                             </span>
                         </a>
                     </div>
@@ -123,7 +124,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/img/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="~/assets/img/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
@@ -191,6 +192,14 @@
                                 <span class="hide-menu">404</span>
                             </a>
                         </li>
+                        <li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+                                <a href="/Security/DoctorLogout" id="abcd" class="appointment-btn scrollto" style="text-decoration:none;"><span class="d-none d-md-inline">Logout</span></a>
+                            }
+                        </li>
+                        
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -364,7 +373,7 @@
                                 <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row m-t-0">
                                     <div class="p-2">
-                                        <img src="../../assets/img/users/1.jpg" alt="user" width="50" class="rounded-circle">
+                                        <img src="~/assets/img/users/1.jpg" alt="user" width="50" class="rounded-circle">
                                     </div>
                                     <div class="comment-text w-100">
                                         <h6 class="font-medium">James Anderson</h6>
@@ -389,7 +398,7 @@
                                 <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row">
                                     <div class="p-2">
-                                        <img src="../../assets/im/users/4.jpg" alt="user" width="50" class="rounded-circle">
+                                        <img src="~/assets/im/users/4.jpg" alt="user" width="50" class="rounded-circle">
                                     </div>
                                     <div class="comment-text active w-100">
                                         <h6 class="font-medium">Michael Jorden</h6>
@@ -414,7 +423,7 @@
                                 <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row">
                                     <div class="p-2">
-                                        <img src="../../assets/img/users/5.jpg" alt="user" width="50" class="rounded-circle">
+                                        <img src="~/assets/img/users/5.jpg" alt="user" width="50" class="rounded-circle">
                                     </div>
                                     <div class="comment-text w-100">
                                         <h6 class="font-medium">Johnathan Doeting</h6>
@@ -439,7 +448,7 @@
                                 <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row m-t-0">
                                     <div class="p-2">
-                                        <img src="../../assets/img/users/2.jpg" alt="user" width="50" class="rounded-circle">
+                                        <img src="~/assets/img/users/2.jpg" alt="user" width="50" class="rounded-circle">
                                     </div>
                                     <div class="comment-text w-100">
                                         <h6 class="font-medium">Steve Jobs</h6>
@@ -550,23 +559,27 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="~/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="~/assets/extra-libs/sparkline/sparkline.js"></script>
     <!--Wave Effects -->
-    <script src="../../dist/js/waves.js"></script>
+
+    <script src="~/assets/js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="../../dist/js/sidebarmenu.js"></script>
+
+    <script src="~/assets/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <script src="../../dist/js/custom.min.js"></script>
+
+    <script src="~/assets/js/custom.min.js"></script>
     <!--This page JavaScript -->
     <!--chartis chart-->
-    <script src="../../assets/libs/chartist/dist/chartist.min.js"></script>
-    <script src="../../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
+    <script src="~/assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="~/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+
+    <script src="~/assets/js/dashboard1.js"></script>
 </body>
 
 </html>

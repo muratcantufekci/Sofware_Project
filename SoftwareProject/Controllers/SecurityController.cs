@@ -11,7 +11,7 @@ namespace SoftwareProject.Controllers
 {
     public class SecurityController : Controller
     {
-        MeDiagEntities2 db = new MeDiagEntities2();
+        MeDiagEntities3 db = new MeDiagEntities3();
         // GET: Security
         public ActionResult Login()
         {
@@ -82,6 +82,36 @@ namespace SoftwareProject.Controllers
                 }
             }
             return View("SignUp");
+        }
+        public ActionResult DoctorLogin()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DoctorLogin(Doctor doctor)
+        {
+            string hashpassword = Crypto.SHA256(doctor.Password);
+            var doctorInDb = db.Doctor.FirstOrDefault(x => x.Email == doctor.Email && x.Password == hashpassword);
+            if (doctorInDb != null)
+            {
+                FormsAuthentication.SetAuthCookie(doctorInDb.Name, false);
+                TempData["getid"] = doctorInDb;
+                return RedirectToAction("DoctorIndex", "Doctor");
+
+            }
+            else
+            {
+                ViewBag.Message = "Wrong email or password";
+                return View();
+            }
+
+        }
+        public ActionResult DoctorLogout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

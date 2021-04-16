@@ -383,24 +383,24 @@
     <Content Include="images\Logo.png" />
     <Content Include="images\original.png" />
     <Content Include="images\Symptom_button.png" />
-    <Content Include="Models\EntityFramework\Model3.Context.tt">
+    <Content Include="Models\EntityFramework\Model4.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model3.edmx</DependentUpon>
-      <LastGenOutput>Model3.Context.cs</LastGenOutput>
+      <DependentUpon>Model4.edmx</DependentUpon>
+      <LastGenOutput>Model4.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EntityFramework\Model3.tt">
+    <Content Include="Models\EntityFramework\Model4.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model3.edmx</DependentUpon>
-      <LastGenOutput>Model3.cs</LastGenOutput>
+      <DependentUpon>Model4.edmx</DependentUpon>
+      <LastGenOutput>Model4.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\EntityFramework\Model3.edmx">
+    <EntityDeploy Include="Models\EntityFramework\Model4.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model3.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model4.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EntityFramework\Model3.edmx.diagram">
-      <DependentUpon>Model3.edmx</DependentUpon>
+    <Content Include="Models\EntityFramework\Model4.edmx.diagram">
+      <DependentUpon>Model4.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -424,49 +424,49 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Appointment.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Community.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\DAppDate.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Department.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Discharge.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Doctor.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Hospital.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Illness.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model3.Context.cs">
+    <Compile Include="Models\EntityFramework\Model4.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.Context.tt</DependentUpon>
+      <DependentUpon>Model4.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model3.cs">
+    <Compile Include="Models\EntityFramework\Model4.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model3.Designer.cs">
+    <Compile Include="Models\EntityFramework\Model4.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.edmx</DependentUpon>
+      <DependentUpon>Model4.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Op_Table.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Patient.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -486,6 +486,7 @@
     <Content Include="Views\Security\SignUp.cshtml" />
     <Content Include="Views\Profile\PatientProfile.cshtml" />
     <Content Include="Views\Doctor\DoctorIndex.cshtml" />
+    <Content Include="Views\Security\DoctorLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

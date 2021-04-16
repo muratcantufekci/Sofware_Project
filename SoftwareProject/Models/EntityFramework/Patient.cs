@@ -11,8 +11,7 @@ namespace SoftwareProject.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Patient
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,19 +21,10 @@ namespace SoftwareProject.Models.EntityFramework
         }
     
         public int Id { get; set; }
-        [Required(ErrorMessage ="Name is required")]
-        [RegularExpression("([A-ZÇÝÖÞÜÐ]+[a-zðýöþü]+)", ErrorMessage ="Please Enter Valid Name")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Surname is required")]
-        [RegularExpression("([A-ZÇÝÖÞÜÐ]+[a-zçðýöþü]+ý?)", ErrorMessage = "Please Enter Valid Surname")]
         public string Surname { get; set; }
-        [Required(ErrorMessage = "IdNumber is required")]
-        [RegularExpression("([0-9]+)", ErrorMessage ="Please Enter Valid ID Number")]
         public string IdNumber { get; set; }
-        [Required(ErrorMessage = "Email is required")]
-        [EmailAddress(ErrorMessage ="Please enter correct mail address")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

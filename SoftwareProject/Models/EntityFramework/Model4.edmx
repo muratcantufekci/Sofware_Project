@@ -54,7 +54,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="70" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DId" Type="int" />
@@ -314,7 +314,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DId" Type="Int32" />
@@ -474,7 +474,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MeDiagEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MeDiagEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Appointment" EntityType="Self.Appointment" />
           <EntitySet Name="Community" EntityType="Self.Community" />
           <EntitySet Name="DAppDate" EntityType="Self.DAppDate" />
@@ -527,7 +527,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MeDiagModelStoreContainer" CdmEntityContainer="MeDiagEntities2">
+        <EntityContainerMapping StorageEntityContainer="MeDiagModelStoreContainer" CdmEntityContainer="MeDiagEntities3">
           <EntitySetMapping Name="Appointment">
             <EntityTypeMapping TypeName="MeDiagModel.Appointment">
               <MappingFragment StoreEntitySet="Appointment">
