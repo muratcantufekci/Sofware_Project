@@ -13,5 +13,9 @@ namespace SoftwareProject.Controllers
         {
             return View();
         }
+        public ActionResult PageProfile()
+        {
+            return View();
+        }
     }
 }
