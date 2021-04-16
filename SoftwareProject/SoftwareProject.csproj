@@ -486,6 +486,7 @@
     <Content Include="Views\Security\SignUp.cshtml" />
     <Content Include="Views\Profile\PatientProfile.cshtml" />
     <Content Include="Views\Doctor\DoctorIndex.cshtml" />
+    <Content Include="Views\Doctor\PageProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
