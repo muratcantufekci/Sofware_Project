@@ -21,14 +21,14 @@ namespace SoftwareProject.Controllers
         [HttpPost]
         public ActionResult Login(Patient patient)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid == false)
             {
 
                 return View("Login");
 
             }
             string hashpassword = Crypto.SHA256(patient.Password);
-            var patientInDb = db.Patient.FirstOrDefault(x => x.Email == patient.Email && x.Password == patient.Password);
+            var patientInDb = db.Patient.FirstOrDefault(x => x.Email == patient.Email && x.Password == hashpassword);
             var getPatientId = db.Patient.SingleOrDefault(x => x.Email == patient.Email).Id;
             if (patientInDb != null)
             {
