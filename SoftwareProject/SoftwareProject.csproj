@@ -111,32 +111,15 @@
     <Content Include="assets\img\departments-3.jpg" />
     <Content Include="assets\img\departments-4.jpg" />
     <Content Include="assets\img\departments-5.jpg" />
-    <Content Include="assets\img\doctors\doctors-1.jpg" />
-    <Content Include="assets\img\doctors\doctors-2.jpg" />
-    <Content Include="assets\img\doctors\doctors-3.jpg" />
-    <Content Include="assets\img\doctors\doctors-4.jpg" />
     <Content Include="assets\img\favicon.png" />
     <Content Include="assets\img\favicons.png" />
     <Content Include="assets\img\free-demo.jpg" />
-    <Content Include="assets\img\gallery\gallery-1.jpg" />
-    <Content Include="assets\img\gallery\gallery-2.jpg" />
-    <Content Include="assets\img\gallery\gallery-3.jpg" />
-    <Content Include="assets\img\gallery\gallery-4.jpg" />
-    <Content Include="assets\img\gallery\gallery-5.jpg" />
-    <Content Include="assets\img\gallery\gallery-6.jpg" />
-    <Content Include="assets\img\gallery\gallery-7.jpg" />
-    <Content Include="assets\img\gallery\gallery-8.jpg" />
     <Content Include="assets\img\hero-bg.jpg" />
     <Content Include="assets\img\logo-icon.png" />
     <Content Include="assets\img\logo-light-icon.png" />
     <Content Include="assets\img\logo-light-text.png" />
     <Content Include="assets\img\logo-text.png" />
     <Content Include="assets\img\pro-demo.jpg" />
-    <Content Include="assets\img\testimonials\testimonials-1.jpg" />
-    <Content Include="assets\img\testimonials\testimonials-2.jpg" />
-    <Content Include="assets\img\testimonials\testimonials-3.jpg" />
-    <Content Include="assets\img\testimonials\testimonials-4.jpg" />
-    <Content Include="assets\img\testimonials\testimonials-5.jpg" />
     <Content Include="assets\img\users\1-old.jpg" />
     <Content Include="assets\img\users\1.jpg" />
     <Content Include="assets\img\users\1.png" />
@@ -377,12 +360,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="images\dr&amp;patient.png" />
-    <Content Include="images\Live_support_button.png" />
-    <Content Include="images\Login_button.png" />
-    <Content Include="images\Logo.png" />
-    <Content Include="images\original.png" />
-    <Content Include="images\Symptom_button.png" />
     <Content Include="Models\EntityFramework\Model4.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model4.edmx</DependentUpon>
@@ -487,6 +464,7 @@
     <Content Include="Views\Profile\PatientProfile.cshtml" />
     <Content Include="Views\Doctor\DoctorIndex.cshtml" />
     <Content Include="Views\Security\DoctorLogin.cshtml" />
+    <Content Include="Views\Doctor\DoctorProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

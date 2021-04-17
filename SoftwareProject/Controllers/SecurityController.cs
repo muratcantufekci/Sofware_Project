@@ -21,12 +21,19 @@ namespace SoftwareProject.Controllers
         [HttpPost]
         public ActionResult Login(Patient patient)
         {
+            if (!ModelState.IsValid)
+            {
+
+                return View("Login");
+
+            }
             string hashpassword = Crypto.SHA256(patient.Password);
-            var patientInDb = db.Patient.FirstOrDefault(x => x.Email == patient.Email && x.Password == hashpassword);
-            if(patientInDb != null)
+            var patientInDb = db.Patient.FirstOrDefault(x => x.Email == patient.Email && x.Password == patient.Password);
+            var getPatientId = db.Patient.SingleOrDefault(x => x.Email == patient.Email).Id;
+            if (patientInDb != null)
             {
                 FormsAuthentication.SetAuthCookie(patientInDb.Name, false);
-                TempData["getid"] = patientInDb;
+                TempData["getpatientid"] = getPatientId;
                 return RedirectToAction("Index", "Home");
                 
             }
@@ -94,10 +101,11 @@ namespace SoftwareProject.Controllers
         {
             string hashpassword = Crypto.SHA256(doctor.Password);
             var doctorInDb = db.Doctor.FirstOrDefault(x => x.Email == doctor.Email && x.Password == hashpassword);
+            var getDoctorId = db.Doctor.SingleOrDefault(x => x.Email == doctor.Email).Id;
             if (doctorInDb != null)
             {
                 FormsAuthentication.SetAuthCookie(doctorInDb.Name, false);
-                TempData["getid"] = doctorInDb;
+                TempData["getdoctorid"] = getDoctorId;
                 return RedirectToAction("DoctorIndex", "Doctor");
 
             }
