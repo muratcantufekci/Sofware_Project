@@ -119,6 +119,7 @@
     <Content Include="assets\img\logo-light-icon.png" />
     <Content Include="assets\img\logo-light-text.png" />
     <Content Include="assets\img\logo-text.png" />
+    <Content Include="assets\img\Logo.png" />
     <Content Include="assets\img\pro-demo.jpg" />
     <Content Include="assets\img\users\1-old.jpg" />
     <Content Include="assets\img\users\1.jpg" />
@@ -462,8 +463,9 @@
     <Content Include="Views\Security\Login.cshtml" />
     <Content Include="Views\Security\SignUp.cshtml" />
     <Content Include="Views\Profile\PatientProfile.cshtml" />
-    <Content Include="Views\Doctor\DoctorIndex.cshtml" />
     <Content Include="Views\Security\DoctorLogin.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage2.cshtml" />
+    <Content Include="Views\Doctor\DoctorIndex.cshtml" />
     <Content Include="Views\Doctor\DoctorProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
