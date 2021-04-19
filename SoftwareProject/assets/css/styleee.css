@@ -10465,10 +10465,9 @@ File: scss
     display: block !important; } }
 .scrollbar {
     display: inline-block;
-    height: 300px;
-    margin-left: -20px;
-    width: 800px;
-    background: #F5F5F5;
+    height: 220px;
+    width: 1870px;
+    margin-left: 0;
     overflow-y: scroll;
     margin-bottom: 25px;
     line-height: 50px;
@@ -10477,7 +10476,6 @@ File: scss
 .force-overflow {
     min-height: 500px;
 }
-
 
 
 #style-1::-webkit-scrollbar-track {
