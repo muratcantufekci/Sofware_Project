@@ -10463,17 +10463,11 @@ File: scss
 @media (max-width: 991.98px) {
   .do-block {
     display: block !important; } }
-#wrapper {
-    text-align: center;
-    margin: auto;
-    padding: 125px 25px 0 25px;
-}
-
 .scrollbar {
-    margin-left: 30px;
     display: inline-block;
     height: 300px;
-    width: 100px;
+    margin-left: -20px;
+    width: 800px;
     background: #F5F5F5;
     overflow-y: scroll;
     margin-bottom: 25px;
@@ -10486,20 +10480,19 @@ File: scss
 
 
 
-#style-10::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
+#style-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
-}
-
-#style-10::-webkit-scrollbar {
-    width: 10px;
     background-color: #F5F5F5;
 }
 
-#style-10::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.3);
-    background-color: #66c1d5;
+#style-1::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .2) 75%, transparent 75%, transparent)
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #333;
 }
