@@ -11,7 +11,7 @@ namespace SoftwareProject.Controllers
 {
     public class SecurityController : Controller
     {
-        MeDiagEntities3 db = new MeDiagEntities3();
+        MeDiagEntities5 db = new MeDiagEntities5();
         // GET: Security
         public ActionResult Login()
         {
@@ -21,28 +21,33 @@ namespace SoftwareProject.Controllers
         [HttpPost]
         public ActionResult Login(Patient patient)
         {
-            if (!ModelState.IsValid == false)
+            
+            if (patient.Email !=null && patient.Password != null)
             {
 
-                return View("Login");
+                string hashpassword = Crypto.SHA256(patient.Password);
+                var patientInDb = db.Patient.FirstOrDefault(x => x.Email == patient.Email && x.Password == hashpassword);
+                var getPatientId = db.Patient.SingleOrDefault(x => x.Email == patient.Email).Id;
 
-            }
-            string hashpassword = Crypto.SHA256(patient.Password);
-            var patientInDb = db.Patient.FirstOrDefault(x => x.Email == patient.Email && x.Password == hashpassword);
-            var getPatientId = db.Patient.SingleOrDefault(x => x.Email == patient.Email).Id;
-            if (patientInDb != null)
-            {
-                FormsAuthentication.SetAuthCookie(patientInDb.Name, false);
-                TempData["getpatientid"] = getPatientId;
-                return RedirectToAction("Index", "Home");
-                
+                if (patientInDb != null)
+                {
+                    FormsAuthentication.SetAuthCookie(patientInDb.Name, false);
+                    TempData["getpatientid"] = getPatientId;
+                    return RedirectToAction("Index", "Home");
+
+                }
+                else
+                {
+                    ViewBag.Message = "Wrong email or password";
+                    return View();
+                }
             }
             else
             {
-                ViewBag.Message = "Wrong email or password";
-                return View();
+                return View("Login");
             }
             
+
         }
 
         public ActionResult Logout()

@@ -14,15 +14,21 @@ namespace SoftwareProject.Models.EntityFramework
     
     public partial class Doctor
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Doctor()
+        {
+            this.DAppDate = new HashSet<DAppDate>();
+        }
+    
         public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public Nullable<int> DId { get; set; }
-        public Nullable<int> AppId { get; set; }
     
-        public virtual DAppDate DAppDate { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DAppDate> DAppDate { get; set; }
         public virtual Department Department { get; set; }
     }
 }

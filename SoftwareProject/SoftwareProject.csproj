@@ -361,24 +361,24 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\EntityFramework\Model4.Context.tt">
+    <Content Include="Models\EntityFramework\Model6.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model4.edmx</DependentUpon>
-      <LastGenOutput>Model4.Context.cs</LastGenOutput>
+      <DependentUpon>Model6.edmx</DependentUpon>
+      <LastGenOutput>Model6.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EntityFramework\Model4.tt">
+    <Content Include="Models\EntityFramework\Model6.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model4.edmx</DependentUpon>
-      <LastGenOutput>Model4.cs</LastGenOutput>
+      <DependentUpon>Model6.edmx</DependentUpon>
+      <LastGenOutput>Model6.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\EntityFramework\Model4.edmx">
+    <EntityDeploy Include="Models\EntityFramework\Model6.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model4.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model6.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EntityFramework\Model4.edmx.diagram">
-      <DependentUpon>Model4.edmx</DependentUpon>
+    <Content Include="Models\EntityFramework\Model6.edmx.diagram">
+      <DependentUpon>Model6.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -402,50 +402,51 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Appointment.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model6.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Community.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model6.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\DAppDate.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model6.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Department.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model6.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Discharge.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model6.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Doctor.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model6.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Hospital.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model6.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Illness.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model6.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model4.Context.cs">
+    <Compile Include="Models\EntityFramework\Model6.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model4.Context.tt</DependentUpon>
+      <DependentUpon>Model6.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model4.cs">
+    <Compile Include="Models\EntityFramework\Model6.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model6.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model4.Designer.cs">
+    <Compile Include="Models\EntityFramework\Model6.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model4.edmx</DependentUpon>
+      <DependentUpon>Model6.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Op_Table.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model6.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Patient.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model6.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EntityFramework\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

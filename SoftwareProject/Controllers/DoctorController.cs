@@ -10,16 +10,42 @@ namespace SoftwareProject.Controllers
 {
     public class DoctorController : Controller
     {
-        MeDiagEntities3 db = new MeDiagEntities3();
+        MeDiagEntities5 db = new MeDiagEntities5();
         // GET: Doctor
         public ActionResult DoctorIndex()
         {
-            Doctor doctor = TempData["getdoctorid"] as Doctor;
+            var jointest = from d in db.Doctor
+                           join dapp in db.DAppDate on d.Id equals dapp.Doctor_id
+                           join app in db.Appointment on dapp.Id equals app.DId
+                           join ill in db.Illness on app.IllId equals ill.Id
+                           join p in db.Patient on ill.PId equals p.Id
+                           select new ViewModel
+                           {
+                               doctor = d,
+                               dApp = dapp,
+                               appointment = app,
+                               ilness = ill,
+                               patient = p
+                           };
+            ViewData["Jointable"] = jointest;
+            
+            Doctor doctor = new Doctor();
+            if(TempData["getdoctorid"] == null)
+            {
+                doctor.Id = (int)TempData["senddoctorid"];
+            }
+            else
+            {
+                doctor.Id = (int)TempData["getdoctorid"];
+            }
+            
+            
             return View(doctor);
         }
         public ActionResult DoctorProfile(int id)
         {
             var infoDoctor = db.Doctor.FirstOrDefault(x => x.Id == id);
+            TempData["senddoctorid"] = id;
             return View(infoDoctor);
         }
         public ActionResult UpdateDoctor(Doctor doctor)

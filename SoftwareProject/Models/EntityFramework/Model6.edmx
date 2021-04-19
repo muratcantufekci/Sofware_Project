@@ -10,7 +10,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="IllId" Type="int" Nullable="false" />
           <Property Name="DId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
@@ -31,6 +30,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date" Type="date" />
           <Property Name="Time" Type="nvarchar" MaxLength="10" />
+          <Property Name="Doctor_id" Type="int" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -58,7 +58,6 @@
           <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DId" Type="int" />
-          <Property Name="AppId" Type="int" />
         </EntityType>
         <EntityType Name="Hospital">
           <Key>
@@ -132,6 +131,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DAppDate_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="DAppDate" Type="Self.DAppDate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DAppDate">
+              <PropertyRef Name="Doctor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Department_Hospital">
           <End Role="Hospital" Type="Self.Hospital" Multiplicity="0..1" />
           <End Role="Department" Type="Self.Department" Multiplicity="*" />
@@ -153,18 +164,6 @@
             </Principal>
             <Dependent Role="Discharge">
               <PropertyRef Name="OpId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Doctor_DAppDate">
-          <End Role="DAppDate" Type="Self.DAppDate" Multiplicity="0..1" />
-          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DAppDate">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Doctor">
-              <PropertyRef Name="AppId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -227,6 +226,10 @@
             <End Role="Illness" EntitySet="Illness" />
             <End Role="Community" EntitySet="Community" />
           </AssociationSet>
+          <AssociationSet Name="FK_DAppDate_Doctor" Association="Self.FK_DAppDate_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="DAppDate" EntitySet="DAppDate" />
+          </AssociationSet>
           <AssociationSet Name="FK_Department_Hospital" Association="Self.FK_Department_Hospital">
             <End Role="Hospital" EntitySet="Hospital" />
             <End Role="Department" EntitySet="Department" />
@@ -234,10 +237,6 @@
           <AssociationSet Name="FK_Discharge_Op_Table" Association="Self.FK_Discharge_Op_Table">
             <End Role="Op_Table" EntitySet="Op_Table" />
             <End Role="Discharge" EntitySet="Discharge" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Doctor_DAppDate" Association="Self.FK_Doctor_DAppDate">
-            <End Role="DAppDate" EntitySet="DAppDate" />
-            <End Role="Doctor" EntitySet="Doctor" />
           </AssociationSet>
           <AssociationSet Name="FK_Doctor_Department" Association="Self.FK_Doctor_Department">
             <End Role="Department" EntitySet="Department" />
@@ -262,7 +261,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IllId" Type="Int32" Nullable="false" />
           <Property Name="DId" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -286,8 +284,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="Time" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Doctor_id" Type="Int32" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK_Appointment_DAppDate" FromRole="DAppDate" ToRole="Appointment" />
-          <NavigationProperty Name="Doctor" Relationship="Self.FK_Doctor_DAppDate" FromRole="DAppDate" ToRole="Doctor" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_DAppDate_Doctor" FromRole="DAppDate" ToRole="Doctor" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -318,8 +317,7 @@
           <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DId" Type="Int32" />
-          <Property Name="AppId" Type="Int32" />
-          <NavigationProperty Name="DAppDate" Relationship="Self.FK_Doctor_DAppDate" FromRole="Doctor" ToRole="DAppDate" />
+          <NavigationProperty Name="DAppDate" Relationship="Self.FK_DAppDate_Doctor" FromRole="Doctor" ToRole="DAppDate" />
           <NavigationProperty Name="Department" Relationship="Self.FK_Doctor_Department" FromRole="Doctor" ToRole="Department" />
         </EntityType>
         <EntityType Name="Hospital">
@@ -402,15 +400,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Doctor_DAppDate">
-          <End Role="DAppDate" Type="Self.DAppDate" Multiplicity="0..1" />
-          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+        <Association Name="FK_DAppDate_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="DAppDate" Type="Self.DAppDate" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DAppDate">
+            <Principal Role="Doctor">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Doctor">
-              <PropertyRef Name="AppId" />
+            <Dependent Role="DAppDate">
+              <PropertyRef Name="Doctor_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -474,7 +472,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MeDiagEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MeDiagEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Appointment" EntityType="Self.Appointment" />
           <EntitySet Name="Community" EntityType="Self.Community" />
           <EntitySet Name="DAppDate" EntityType="Self.DAppDate" />
@@ -497,9 +495,9 @@
             <End Role="Illness" EntitySet="Illness" />
             <End Role="Community" EntitySet="Community" />
           </AssociationSet>
-          <AssociationSet Name="FK_Doctor_DAppDate" Association="Self.FK_Doctor_DAppDate">
-            <End Role="DAppDate" EntitySet="DAppDate" />
+          <AssociationSet Name="FK_DAppDate_Doctor" Association="Self.FK_DAppDate_Doctor">
             <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="DAppDate" EntitySet="DAppDate" />
           </AssociationSet>
           <AssociationSet Name="FK_Department_Hospital" Association="Self.FK_Department_Hospital">
             <End Role="Hospital" EntitySet="Hospital" />
@@ -527,12 +525,11 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MeDiagModelStoreContainer" CdmEntityContainer="MeDiagEntities3">
+        <EntityContainerMapping StorageEntityContainer="MeDiagModelStoreContainer" CdmEntityContainer="MeDiagEntities5">
           <EntitySetMapping Name="Appointment">
             <EntityTypeMapping TypeName="MeDiagModel.Appointment">
               <MappingFragment StoreEntitySet="Appointment">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="IllId" ColumnName="IllId" />
                 <ScalarProperty Name="DId" ColumnName="DId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -555,6 +552,7 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Doctor_id" ColumnName="Doctor_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -585,7 +583,6 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="DId" ColumnName="DId" />
-                <ScalarProperty Name="AppId" ColumnName="AppId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

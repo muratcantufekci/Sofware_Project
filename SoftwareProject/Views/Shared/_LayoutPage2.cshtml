@@ -83,7 +83,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" style="text-decoration:none;">
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/Doctor/DoctorIndex/@Model.Id" aria-expanded="false">
                                 <i class="material-icons" style="text-decoration:none;">home</i>
                                 <span class="hide-menu">Home</span>
                             </a>
@@ -91,7 +91,7 @@
 
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/Doctor/DoctorProfile/@TempData["getdoctorid"]" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/Doctor/DoctorProfile/@Model.Id" aria-expanded="false">
                                 <i class="material-icons" style="text-decoration:none;">person</i>
                                 <span class="hide-menu">Profile</span>
                             </a>
@@ -106,16 +106,16 @@
 
 
 
-                        <li>
+                        <li class="sidebar-item">
                             @if (User.Identity.IsAuthenticated)
                             {
 
 
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/Security/DoctorLogout" aria-expanded="false">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/Security/DoctorLogout" aria-expanded="false" >
                                     <i class="material-icons" style="text-decoration:none;">exit_to_app</i>
 
 
-                                    <span class="d-none d-md-inline">Logout</span>
+                                    <span class="hide-menu">Logout</span>
                                 </a>
                             }
                         </li>

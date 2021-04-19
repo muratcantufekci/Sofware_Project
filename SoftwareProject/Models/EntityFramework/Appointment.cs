@@ -15,7 +15,6 @@ namespace SoftwareProject.Models.EntityFramework
     public partial class Appointment
     {
         public int Id { get; set; }
-        public System.DateTime Date { get; set; }
         public int IllId { get; set; }
         public int DId { get; set; }
         public string Name { get; set; }
