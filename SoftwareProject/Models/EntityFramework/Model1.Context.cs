@@ -13,10 +13,10 @@ namespace SoftwareProject.Models.EntityFramework
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MeDiagEntities5 : DbContext
+    public partial class MeDiagEntities7 : DbContext
     {
-        public MeDiagEntities5()
-            : base("name=MeDiagEntities5")
+        public MeDiagEntities7()
+            : base("name=MeDiagEntities7")
         {
         }
     

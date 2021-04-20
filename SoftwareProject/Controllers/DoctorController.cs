@@ -10,7 +10,7 @@ namespace SoftwareProject.Controllers
 {
     public class DoctorController : Controller
     {
-        MeDiagEntities5 db = new MeDiagEntities5();
+        MeDiagEntities7 db = new MeDiagEntities7();
         // GET: Doctor
         public ActionResult DoctorIndex()
         {
@@ -85,6 +85,14 @@ namespace SoftwareProject.Controllers
                 }
 
             }
+        }
+
+        public ActionResult DoctorChat(int id)
+        {
+            var infoDoctor = db.Doctor.FirstOrDefault(x => x.Id == id);
+
+
+            return View(infoDoctor);
         }
        
     }

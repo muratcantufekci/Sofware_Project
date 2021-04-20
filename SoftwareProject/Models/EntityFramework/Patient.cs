@@ -11,8 +11,7 @@ namespace SoftwareProject.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Patient
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,23 +19,14 @@ namespace SoftwareProject.Models.EntityFramework
         {
             this.Illness = new HashSet<Illness>();
         }
-
+    
         public int Id { get; set; }
-        [Required(ErrorMessage = "Name is Required")]
-        [RegularExpression("([A-ZÇÝÖÞÜÐ]+[a-zçÐIÖÞÜ]+)", ErrorMessage = "Please Enter Valid Name")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Surnaame is Required")]
-        [RegularExpression("([A-ZÇÝÖÞÜÐ]+[a-zçÐIÖÞÜ]+)", ErrorMessage = "Please Enter Valid Surname")]
         public string Surname { get; set; }
-        [Required(ErrorMessage = "IdNumber is Required")]
-        [RegularExpression("([0-9]+)", ErrorMessage = "Please Enter Valid IdNumber")]
         public string IdNumber { get; set; }
-        [Required(ErrorMessage = "Email is Required")]
-        [EmailAddress(ErrorMessage = "Please Enter Valid Email Adress")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Password is Required")]
         public string Password { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Illness> Illness { get; set; }
     }
