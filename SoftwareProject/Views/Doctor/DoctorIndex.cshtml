@@ -78,7 +78,7 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <h5 class="card-title m-b-5">Patients</h5>
+                                <h5 class="card-title m-b-5">Patients In Last 30 Days</h5>
                                 <div class="scrollbar" id="style-default" style="width:1550px;">
                                     <table class="table table-hover">
                                         <thead>
@@ -92,18 +92,21 @@
                                             @{var temp = 0; }
                                             @foreach (ViewModel viewModel in viewModels)
                                             {
-
-                                                if (viewModel.patient.Id != temp)
+                                                if (viewModel.dApp.Date >= DateTime.Now.AddDays(-30))
                                                 {
-                                                    <tr>
-                                                        <td>@viewModel.patient.Name</td>
-                                                        <td>@viewModel.patient.Surname</td>
+                                                    if (viewModel.patient.Id != temp)
+                                                    {
+                                                        <tr>
+                                                            <td>@viewModel.patient.Name</td>
+                                                            <td>@viewModel.patient.Surname</td>
 
 
-                                                    </tr>
+                                                        </tr>
+                                                    }
+
+                                                    temp = viewModel.patient.Id;
                                                 }
 
-                                                temp = viewModel.patient.Id;
 
                                             }
                                         </tbody>
