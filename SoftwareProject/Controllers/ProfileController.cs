@@ -10,7 +10,7 @@ namespace SoftwareProject.Controllers
 {
     public class ProfileController : Controller
     {
-        MeDiagEntities7 db = new MeDiagEntities7();
+        MeDiagEntities8 db = new MeDiagEntities8();
         // GET: Profile
         public ActionResult PatientProfile(int id)
         {

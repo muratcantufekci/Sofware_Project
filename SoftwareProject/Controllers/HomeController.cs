@@ -9,7 +9,7 @@ namespace SoftwareProject.Controllers
 {    
     public class HomeController : Controller
     {
-        MeDiagEntities7 db = new MeDiagEntities7();
+        MeDiagEntities8 db = new MeDiagEntities8();
         // GET: Home
 
 
