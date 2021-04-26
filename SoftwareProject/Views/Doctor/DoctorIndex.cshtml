@@ -92,17 +92,15 @@
                                             @{var temp = 0; }
                                             @foreach (ViewModel viewModel in viewModels)
                                             {
-                                                if (viewModel.dApp.Date >= DateTime.Now.AddDays(-30))
+                                                if (viewModel.dApp.Date >= DateTime.Now.AddDays(-30) && viewModel.patient.Id != temp)
                                                 {
-                                                    if (viewModel.patient.Id != temp)
-                                                    {
-                                                        <tr>
+                                                   
+                                                       <tr>
                                                             <td>@viewModel.patient.Name</td>
                                                             <td>@viewModel.patient.Surname</td>
 
 
-                                                        </tr>
-                                                    }
+                                                        </tr>                                                    
 
                                                     temp = viewModel.patient.Id;
                                                 }

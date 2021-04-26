@@ -97,6 +97,7 @@
   <ItemGroup>
     <Content Include="assets\css\chat.css" />
     <Content Include="assets\css\Login.css" />
+    <Content Include="assets\css\Prediction.css" />
     <Content Include="assets\css\Profile.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\css\styleee.css" />
@@ -397,6 +398,7 @@
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PredictionController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Global.asax.cs">
@@ -470,6 +472,7 @@
     <Content Include="Views\Doctor\DoctorIndex.cshtml" />
     <Content Include="Views\Doctor\DoctorProfile.cshtml" />
     <Content Include="Views\Doctor\DoctorChat.cshtml" />
+    <Content Include="Views\Prediction\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
