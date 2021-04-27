@@ -1,16 +1,16 @@
-﻿using SoftwareProject.Models.EntityFramework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using SoftwareProject.Models.EntityFramework;
 
 namespace SoftwareProject.Controllers
 {
     public class DoctorController : Controller
     {
-        MeDiagEntities8 db = new MeDiagEntities8();
+        MeDiagEntities6 db = new MeDiagEntities6();
         // GET: Doctor
         public ActionResult DoctorIndex()
         {

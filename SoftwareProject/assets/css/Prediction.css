@@ -1,6 +1,15 @@
 ﻿
+body {
+    background: #add8e6;
+    background: -webkit-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -o-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -moz-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: linear-gradient(45deg,#bbdeea,#e4f2f7);
+ 
+}
+
 * {
-    margin: 0;
+ 
     padding: 0;
     box-sizing: border-box
 }
@@ -11,8 +20,7 @@
 }*/
 
 a {
-    font-family: Poppins-Regular;
-    font-size: 14px;
+   text-decoration:none;
     line-height: 1.7;
     color: #666;
     margin: 0;
