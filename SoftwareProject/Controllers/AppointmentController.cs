@@ -10,7 +10,7 @@ namespace SoftwareProject.Controllers
     {
         // GET: Appointment
         [Authorize]
-        public ActionResult Index()
+        public ActionResult AppointmentIndex()
         {
             return View();
         }

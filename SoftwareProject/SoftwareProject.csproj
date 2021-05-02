@@ -98,6 +98,7 @@
     <Content Include="assets\css\chat.css" />
     <Content Include="assets\css\Login.css" />
     <Content Include="assets\css\Prediction.css" />
+    <Content Include="assets\css\Appointmentcss.css" />
     <Content Include="assets\css\Profile.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\css\styleee.css" />
@@ -363,24 +364,24 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\EntityFramework\Model6.Context.tt">
+    <Content Include="Models\EntityFramework\Model7.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model6.edmx</DependentUpon>
-      <LastGenOutput>Model6.Context.cs</LastGenOutput>
+      <DependentUpon>Model7.edmx</DependentUpon>
+      <LastGenOutput>Model7.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EntityFramework\Model6.tt">
+    <Content Include="Models\EntityFramework\Model7.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model6.edmx</DependentUpon>
-      <LastGenOutput>Model6.cs</LastGenOutput>
+      <DependentUpon>Model7.edmx</DependentUpon>
+      <LastGenOutput>Model7.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\EntityFramework\Model6.edmx">
+    <EntityDeploy Include="Models\EntityFramework\Model7.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model6.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model7.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EntityFramework\Model6.edmx.diagram">
-      <DependentUpon>Model6.edmx</DependentUpon>
+    <Content Include="Models\EntityFramework\Model7.edmx.diagram">
+      <DependentUpon>Model7.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -405,49 +406,49 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Appointment.cs">
-      <DependentUpon>Model6.tt</DependentUpon>
+      <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Community.cs">
-      <DependentUpon>Model6.tt</DependentUpon>
+      <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\DAppDate.cs">
-      <DependentUpon>Model6.tt</DependentUpon>
+      <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Department.cs">
-      <DependentUpon>Model6.tt</DependentUpon>
+      <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Discharge.cs">
-      <DependentUpon>Model6.tt</DependentUpon>
+      <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Doctor.cs">
-      <DependentUpon>Model6.tt</DependentUpon>
+      <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Hospital.cs">
-      <DependentUpon>Model6.tt</DependentUpon>
+      <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Illness.cs">
-      <DependentUpon>Model6.tt</DependentUpon>
+      <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model6.Context.cs">
+    <Compile Include="Models\EntityFramework\Model7.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model6.Context.tt</DependentUpon>
+      <DependentUpon>Model7.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model6.cs">
+    <Compile Include="Models\EntityFramework\Model7.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model6.tt</DependentUpon>
+      <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model6.Designer.cs">
+    <Compile Include="Models\EntityFramework\Model7.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model6.edmx</DependentUpon>
+      <DependentUpon>Model7.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Op_Table.cs">
-      <DependentUpon>Model6.tt</DependentUpon>
+      <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Patient.cs">
-      <DependentUpon>Model6.tt</DependentUpon>
+      <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -462,7 +463,6 @@
     </None>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Appointment\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Security\Login.cshtml" />
     <Content Include="Views\Security\SignUp.cshtml" />
@@ -473,6 +473,7 @@
     <Content Include="Views\Doctor\DoctorProfile.cshtml" />
     <Content Include="Views\Doctor\DoctorChat.cshtml" />
     <Content Include="Views\Prediction\Index.cshtml" />
+    <Content Include="Views\Appointment\AppointmentIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

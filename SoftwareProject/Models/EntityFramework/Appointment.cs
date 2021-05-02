@@ -18,6 +18,7 @@ namespace SoftwareProject.Models.EntityFramework
         public int IllId { get; set; }
         public int DId { get; set; }
         public string Name { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     
         public virtual DAppDate DAppDate { get; set; }
         public virtual Illness Illness { get; set; }

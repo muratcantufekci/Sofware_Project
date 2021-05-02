@@ -51,7 +51,7 @@
                                 @{var count = 0; }
                                 @foreach (ViewModel viewModel in viewModels)
                                 {
-                                    if (viewModel.dApp.Date == DateTime.Today)
+                                    if (viewModel.appointment.Date == DateTime.Today)
                                     {
                                         count++;
                                     }
@@ -92,7 +92,7 @@
                                             @{var temp = 0; }
                                             @foreach (ViewModel viewModel in viewModels)
                                             {
-                                                if (viewModel.dApp.Date >= DateTime.Now.AddDays(-30) && viewModel.patient.Id != temp)
+                                                if (viewModel.appointment.Date >= DateTime.Now.AddDays(-30) && viewModel.patient.Id != temp)
                                                 {
                                                    
                                                        <tr>
@@ -145,7 +145,7 @@
                                                                 var time1 = DateTime.Now;
                                                                 var time2 = Convert.ToDateTime(viewModel.dApp.Time);
                                                                 int result = DateTime.Compare(time1, time2);
-                                                                if (viewModel.dApp.Date == DateTime.Today)
+                                                                if (viewModel.appointment.Date == DateTime.Today)
                                                                 {
                                                 <tr>
 
@@ -160,7 +160,7 @@
                                                     }
 
                                                     <td class="txt-oflo">@viewModel.ilness.Name </td>
-                                                    <td class="txt-oflo">@String.Format("{0:dd/MM/yyyy}", viewModel.dApp.Date) @viewModel.dApp.Time</td>
+                                                    <td class="txt-oflo">@String.Format("{0:dd/MM/yyyy}", viewModel.appointment.Date) @viewModel.dApp.Time</td>
 
                                                 </tr>
                                                     }

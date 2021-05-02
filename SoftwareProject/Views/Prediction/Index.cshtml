@@ -23,6 +23,8 @@
     <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    
+
     <title>Diagnosis</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
@@ -88,16 +90,17 @@
         </div>
     </header><!-- End Header -->
 
-    <main id="main" style="margin-top:150px;" >
+    <main id="main" style="margin-top:150px;">
         <div class="container-contact100">
             <div class="wrap-contact100">
-                <form class="contact100-form validate-form" action="/action_page.php" >
+                
+                <form class="contact100-form validate-form" method="post"  >
                     <span class="contact100-form-title" style="font-size:32px">Symptom Prediction</span>
                     <span class="contact100-form-title" id="output" style="color: #ff0000;">&nbsp;</span>
 
                     <div class="wrap-input100 ">
                         <span class="label-input100">First Symptom</span>
-                        <select class="input100" id="first_symptom" name="first_syptom" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
+                        <select class="input100" id="Symptom_1" name="Symptom_1" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
                             <option value="">Select First Sypmtom</option>
                             <option value="0">Acidity</option>
                             <option value="1">Back pain</option>
@@ -132,7 +135,7 @@
 
                     <div class="wrap-input100 ">
                         <span class="label-input100">Second symptom</span>
-                        <select class="input100" id="second_symptom" name="second_syptom" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
+                        <select class="input100" id="Symptom_2" name="Symptom_2" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
                             <option value="">Select Second Sypmton</option>
                             <option value="0">Abdominal pain</option>
                             <option value="1">Altered sensorium</option>
@@ -193,7 +196,7 @@
 
                     <div class="wrap-input100 ">
                         <span class="label-input100">Third Symptom</span>
-                        <select class="input100" id="third_symptom" name="third_syptom" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
+                        <select class="input100" id="Symptom_3" name="Symptom_3" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
                             <option value="">Select Third Sypmton</option>
                             <option value="0">Abdominal pain</option>
                             <option value="1">Altered sensorium</option>
@@ -257,7 +260,7 @@
 
                     <div class="wrap-input100 ">
                         <span class="label-input100">Fourth Symptom</span>
-                        <select class="input100" id="fourth_symptom" name="fourth_syptom" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
+                        <select class="input100" id="Symptom_4" name="Symptom_4" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
                             <option value="">Select Fourth Sypmton</option>
                             <option value="0">Abdominal pain</option>
                             <option value="1">Altered sensorium</option>
@@ -330,7 +333,7 @@
 
                     <div class="wrap-input100 ">
                         <span class="label-input100">Fifth Symptom</span>
-                        <select class="input100" id="fifth_symptom" name="fifth_syptom" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
+                        <select class="input100" id="Symptom_5" name="Symptom_5" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
                             <option value="">Select Fifth Sypmton</option>
                             <option value="0">Abdominal pain</option>
                             <option value="1">Back pain</option>
@@ -393,7 +396,7 @@
 
                     <div class="wrap-input100 ">
                         <span class="label-input100">Sixth Symptom</span>
-                        <select class="input100" id="sixth_symptom" name="sixth_syptom" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
+                        <select class="input100" id="Symptom_6" name="Symptom_6" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
                             <option value="">Select Sixth Sypmton</option>
                             <option value="0">Abdominal pain</option>
                             <option value="1">Acidity</option>
@@ -464,7 +467,7 @@
                     </div>
                     <div class="wrap-input100 ">
                         <span class="label-input100">Seventh Symptom</span>
-                        <select class="input100" id="seventh_symptom" name="seventh_syptom" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
+                        <select class="input100" id="Symptom_7" name="Symptom_7" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
                             <option value="">Select Seventh Sypmton</option>
                             <option value="0">0.0</option>
                             <option value="1">Abdominal pain</option>
@@ -527,7 +530,7 @@
                     </div>
                     <div class="wrap-input100 ">
                         <span class="label-input100">Eighth symptom</span>
-                        <select class="input100" id="eighth_symptom" name="eighth_syptom" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
+                        <select class="input100" id="Symptom_8" name="Symptom_8" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
                             <option value="">Select Eighth Sypmton</option>
                             <option value="0">0.0</option>
                             <option value="1">Abdominal pain</option>
@@ -582,7 +585,7 @@
                     </div>
                     <div class="wrap-input100 ">
                         <span class="label-input100">Ninth Symptom</span>
-                        <select class="input100" id="ninth_symptom" name="ninth_syptom" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
+                        <select class="input100" id="Symptom_9" name="Symptom_9" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
                             <option value="">Select Ninth Sypmton</option>
                             <option value="0">0.0</option>
                             <option value="1">Abdominal pain</option>
@@ -634,7 +637,7 @@
 
                     <div class="wrap-input100 ">
                         <span class="label-input100">Tenth Symptom</span>
-                        <select class="input100" id="tenth_symptom" name="tenth_syptom" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
+                        <select class="input100" id="Symptom_10" name="Symptom_10" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
                             <option value="">Select Tenth Sypmton</option>
                             <option value="0">0.0</option>
                             <option value="1">Abnormal Menstruation</option>
@@ -670,7 +673,7 @@
 
                     <div class="wrap-input100 ">
                         <span class="label-input100">Eleventh Symptom</span>
-                        <select class="input100" id="eleventh_symptom" name="eleventh_syptom" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
+                        <select class="input100" id="Symptom_11" name="Symptom_11" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;">
                             <option value="">Select Eleventh Sypmton</option>
                             <option value="0">0.0</option>
                             <option value="1">Abdominal pain</option>
@@ -711,6 +714,21 @@
                 </form>
             </div>
         </div>
+      
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script type="text/javascript">
+        $('#submit').click(function (event) {
+            event.preventDefault();
+                
+            var exist_response = $.ajax({ type: "GET", url: "https://heroku-diagnosis.herokuapp.com/predict", data: "Symptom_1=" + $('#Symptom_1').val() + "&Symptom_2=" + $('#Symptom_2').val() +
+                "&Symptom_3=" + $('#Symptom_3').val() + "&Symptom_4=" + $('#Symptom_4').val() + "&Symptom_5=" + $('#Symptom_5').val() + "&Symptom_6=" +
+                $('#Symptom_6').val() + "&Symptom_7=" + $('#Symptom_7').val() + "&Symptom_8=" + $('#Symptom_8').val() + "&Symptom_9=" + $('#Symptom_9').val() + "&Symptom_10=" + $('#Symptom_10').val() +
+                "&Symptom_11=" + $('#Symptom_11').val(),async: false}).responseText;
+                 $('#output').text("According to the symptoms you have entered, you may have a " +exist_response + " disease. Make an appointment on our website to consult a doctor. " );
+            
+        });
+            </script>
     </main>
     <div class="footer2" >
 
@@ -755,11 +773,4 @@
 
 
 </html>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-    $('#submit').click(function (event) {
-        event.preventDefault();
-        var exist_response = $.ajax({ type: "GET", url: "http://13.250.101.192/predict", data: "gender=" + $('#gender').val() + "&height_cms=" + $('#height_cms').val() + "&caste=" + $('#caste').val() + "&religion=" + $('#religion').val() + "&mother_tongue=" + $('#mother_tongue').val() + "&country=" + $('#country').val(), async: false }).responseText;
-        $('#output').text("Your Predicted Year of Marriage : " + String(parseInt(exist_response.split(".")[0]) + parseInt($('#yob').val())));
-    });
-</script>
+

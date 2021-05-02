@@ -12,7 +12,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IllId" Type="int" Nullable="false" />
           <Property Name="DId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="date" />
         </EntityType>
         <EntityType Name="Community">
           <Key>
@@ -28,7 +29,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Date" Type="date" />
           <Property Name="Time" Type="nvarchar" MaxLength="10" />
           <Property Name="Doctor_id" Type="int" />
         </EntityType>
@@ -71,8 +71,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="PId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Op_Table">
@@ -263,7 +263,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IllId" Type="Int32" Nullable="false" />
           <Property Name="DId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
           <NavigationProperty Name="DAppDate" Relationship="Self.FK_Appointment_DAppDate" FromRole="Appointment" ToRole="DAppDate" />
           <NavigationProperty Name="Illness" Relationship="Self.FK_Appointment_Illness" FromRole="Appointment" ToRole="Illness" />
         </EntityType>
@@ -282,7 +283,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="Time" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Doctor_id" Type="Int32" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK_Appointment_DAppDate" FromRole="DAppDate" ToRole="Appointment" />
@@ -333,8 +333,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK_Appointment_Illness" FromRole="Illness" ToRole="Appointment" />
           <NavigationProperty Name="Community" Relationship="Self.FK_Community_Illness" FromRole="Illness" ToRole="Community" />
@@ -472,7 +472,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MeDiagEntities6" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MeDiagEntities9" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Appointment" EntityType="Self.Appointment" />
           <EntitySet Name="Community" EntityType="Self.Community" />
           <EntitySet Name="DAppDate" EntityType="Self.DAppDate" />
@@ -525,7 +525,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MeDiagModelStoreContainer" CdmEntityContainer="MeDiagEntities6">
+        <EntityContainerMapping StorageEntityContainer="MeDiagModelStoreContainer" CdmEntityContainer="MeDiagEntities9">
           <EntitySetMapping Name="Appointment">
             <EntityTypeMapping TypeName="MeDiagModel.Appointment">
               <MappingFragment StoreEntitySet="Appointment">
@@ -533,6 +533,7 @@
                 <ScalarProperty Name="IllId" ColumnName="IllId" />
                 <ScalarProperty Name="DId" ColumnName="DId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -550,7 +551,6 @@
             <EntityTypeMapping TypeName="MeDiagModel.DAppDate">
               <MappingFragment StoreEntitySet="DAppDate">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Doctor_id" ColumnName="Doctor_id" />
               </MappingFragment>

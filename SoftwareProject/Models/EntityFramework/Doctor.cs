@@ -11,7 +11,8 @@ namespace SoftwareProject.Models.EntityFramework
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Doctor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,9 @@ namespace SoftwareProject.Models.EntityFramework
         }
     
         public int Id { get; set; }
+        [Required(ErrorMessage ="Mail is required")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

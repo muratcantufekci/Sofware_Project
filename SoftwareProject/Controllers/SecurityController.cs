@@ -11,7 +11,7 @@ namespace SoftwareProject.Controllers
 {
     public class SecurityController : Controller
     {
-        MeDiagEntities6 db = new MeDiagEntities6();
+        MeDiagEntities9 db = new MeDiagEntities9();
         // GET: Security
         public ActionResult Login()
         {
@@ -104,21 +104,26 @@ namespace SoftwareProject.Controllers
         [HttpPost]
         public ActionResult DoctorLogin(Doctor doctor)
         {
-            string hashpassword = Crypto.SHA256(doctor.Password);
-            var doctorInDb = db.Doctor.FirstOrDefault(x => x.Email == doctor.Email && x.Password == hashpassword);
-            var getDoctorId = db.Doctor.SingleOrDefault(x => x.Email == doctor.Email).Id;
-            if (doctorInDb != null)
+            if (ModelState.IsValid)
             {
-                FormsAuthentication.SetAuthCookie(doctorInDb.Name, false);
-                TempData["getdoctorid"] = getDoctorId;
-                return RedirectToAction("DoctorIndex", "Doctor");
+                string hashpassword = Crypto.SHA256(doctor.Password);
+                var doctorInDb = db.Doctor.FirstOrDefault(x => x.Email == doctor.Email && x.Password == hashpassword);
+                var getDoctorId = db.Doctor.SingleOrDefault(x => x.Email == doctor.Email).Id;
+                if (doctorInDb != null)
+                {
+                    FormsAuthentication.SetAuthCookie(doctorInDb.Name, false);
+                    TempData["getdoctorid"] = getDoctorId;
+                    return RedirectToAction("DoctorIndex", "Doctor");
+
+                }
+                else
+                {
+                    ViewBag.Message = "Wrong email or password";
+                    return View();
+                }
 
             }
-            else
-            {
-                ViewBag.Message = "Wrong email or password";
-                return View();
-            }
+            return View();
 
         }
         public ActionResult DoctorLogout()

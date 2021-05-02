@@ -21,7 +21,6 @@ namespace SoftwareProject.Models.EntityFramework
         }
     
         public int Id { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
         public string Time { get; set; }
         public Nullable<int> Doctor_id { get; set; }
     
