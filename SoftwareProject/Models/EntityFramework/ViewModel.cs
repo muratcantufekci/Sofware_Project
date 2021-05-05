@@ -12,5 +12,7 @@ namespace SoftwareProject.Models.EntityFramework
         public Appointment appointment { get; set; }
         public Illness ilness { get; set; }
         public Patient patient { get; set; }
+        public Illness Illness { get; set; }
+
     }
 }

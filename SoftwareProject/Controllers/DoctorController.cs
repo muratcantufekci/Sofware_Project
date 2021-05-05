@@ -27,6 +27,7 @@ namespace SoftwareProject.Controllers
                                ilness = ill,
                                patient = p
                            };
+            
             ViewData["Jointable"] = jointest;
             
             Doctor doctor = new Doctor();

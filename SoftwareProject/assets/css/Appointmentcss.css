@@ -1,4 +1,10 @@
-﻿
+﻿body {
+    background: #add8e6;
+    background: -webkit-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -o-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -moz-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: linear-gradient(45deg,#bbdeea,#e4f2f7);
+}
 /* ==========================================================================
    #FONT
    ========================================================================== */
@@ -166,23 +172,23 @@ h6 {
 }
 
 .bg-red {
-    background: #fa4251;
+    background: #add8e6;
 }
 
 .bg-gra-01 {
-    background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
-    background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-    background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-    background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-    background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
+    background: #add8e6;
+    background: -webkit-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -o-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -moz-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: linear-gradient(45deg,#bbdeea,#e4f2f7);
 }
 
 .bg-gra-02 {
-    background: -webkit-gradient(linear, left bottom, right top, from(#fc2c77), to(#6c4079));
-    background: -webkit-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-    background: -moz-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-    background: -o-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-    background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%);
+    background: #add8e6;
+    background: -webkit-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -o-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -moz-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: linear-gradient(45deg,#bbdeea,#e4f2f7);
 }
 
 /* ==========================================================================
@@ -452,7 +458,11 @@ input {
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
-        background: #57b846;
+        background: #add8e6;
+        background: -webkit-linear-gradient(45deg,#bbdeea,#e4f2f7);
+        background: -o-linear-gradient(45deg,#bbdeea,#e4f2f7);
+        background: -moz-linear-gradient(45deg,#bbdeea,#e4f2f7);
+        background: linear-gradient(45deg,#bbdeea,#e4f2f7);
     }
 
 .checkmark {
@@ -466,7 +476,11 @@ input {
     left: 0;
     height: 20px;
     width: 20px;
-    background-color: #e5e5e5;
+    background: #add8e6;
+    background: -webkit-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -o-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -moz-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: linear-gradient(45deg,#bbdeea,#e4f2f7);
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -514,7 +528,11 @@ input {
 .rs-select2 .select2-container {
     width: 100% !important;
     outline: none;
-    background: #fafafa;
+    background: #add8e6;
+    background: -webkit-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -o-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: -moz-linear-gradient(45deg,#bbdeea,#e4f2f7);
+    background: linear-gradient(45deg,#bbdeea,#e4f2f7);
     -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
     -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
     box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
@@ -522,6 +540,10 @@ input {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+
+
+
+
 
     .rs-select2 .select2-container .select2-selection--single {
         outline: none;

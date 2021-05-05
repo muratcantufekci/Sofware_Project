@@ -147,6 +147,7 @@
     <Content Include="assets\js\custom.js" />
     <Content Include="assets\js\custom.min.js" />
     <Content Include="assets\js\dashboard1.js" />
+    <Content Include="assets\js\global.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\js\sidebarmenu.js" />
     <Content Include="assets\js\waves.js" />
@@ -329,6 +330,13 @@
     <Content Include="assets\vendor\boxicons\css\boxicons.min.css" />
     <Content Include="assets\vendor\boxicons\css\transformations.css" />
     <Content Include="assets\vendor\boxicons\fonts\boxicons.svg" />
+    <Content Include="assets\vendor\datepicker\daterangepicker.css" />
+    <Content Include="assets\vendor\datepicker\daterangepicker.js" />
+    <Content Include="assets\vendor\datepicker\moment.min.js" />
+    <Content Include="assets\vendor\font-awesome-4.7\css\font-awesome.css" />
+    <Content Include="assets\vendor\font-awesome-4.7\css\font-awesome.min.css" />
+    <Content Include="assets\vendor\font-awesome-4.7\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\vendor\font-awesome-4.7\HELP-US-OUT.txt" />
     <Content Include="assets\vendor\fontawesome-free\css\all.css" />
     <Content Include="assets\vendor\fontawesome-free\css\all.min.css" />
     <Content Include="assets\vendor\fontawesome-free\css\brands.css" />
@@ -350,11 +358,18 @@
     <Content Include="assets\vendor\glightbox\css\glightbox.min.css" />
     <Content Include="assets\vendor\glightbox\js\glightbox.js" />
     <Content Include="assets\vendor\glightbox\js\glightbox.min.js" />
+    <Content Include="assets\vendor\jquery\jquery.js" />
+    <Content Include="assets\vendor\jquery\jquery.min.js" />
+    <Content Include="assets\vendor\mdi-font\css\material-design-iconic-font.css" />
+    <Content Include="assets\vendor\mdi-font\css\material-design-iconic-font.min.css" />
+    <Content Include="assets\vendor\mdi-font\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="assets\vendor\php-email-form\validate.js" />
     <Content Include="assets\vendor\purecounter\purecounter.js" />
     <Content Include="assets\vendor\remixicon\remixicon.css" />
     <Content Include="assets\vendor\remixicon\remixicon.svg" />
     <Content Include="assets\vendor\remixicon\remixicon.symbol.svg" />
+    <Content Include="assets\vendor\select2\select2.min.css" />
+    <Content Include="assets\vendor\select2\select2.min.js" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.css" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -383,6 +398,15 @@
     <Content Include="Models\EntityFramework\Model7.edmx.diagram">
       <DependentUpon>Model7.edmx</DependentUpon>
     </Content>
+    <Content Include="assets\vendor\font-awesome-4.7\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\vendor\font-awesome-4.7\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\vendor\font-awesome-4.7\fonts\FontAwesome.otf" />
+    <Content Include="assets\vendor\mdi-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="assets\vendor\mdi-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="assets\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="assets\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -451,6 +475,8 @@
       <DependentUpon>Model7.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\ViewModel.cs" />
+    <Compile Include="Models\EntityFramework\ViewModel2.cs" />
+    <Compile Include="Models\EntityFramework\ViewModel3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
