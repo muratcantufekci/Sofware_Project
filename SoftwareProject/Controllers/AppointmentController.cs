@@ -14,13 +14,15 @@ namespace SoftwareProject.Controllers
         // GET: Appointment
         [Authorize]
         public ActionResult AppointmentIndex(int id)
-        {           
+        {
+            int findLastIllness = (int)TempData["getPID"];
             var model = new ViewModel2();
             model.doctors = db.Doctor.ToList();           
             model.hospitals = db.Hospital.ToList();
             model.departments = db.Department.ToList();
             model.dAppDates = db.DAppDate.ToList();
             model.patients = db.Patient.FirstOrDefault(x=>x.Id ==id);
+            model.illness = db.Illness.FirstOrDefault(x => x.Id == findLastIllness);
 
             
 
@@ -34,7 +36,7 @@ namespace SoftwareProject.Controllers
         [HttpPost]
         public ActionResult AppointmentIndex(ViewModel3 viewModel)
         {
-            var findPatientId = db.Patient.FirstOrDefault(x => x.Name == viewModel.PatientName);
+            var findPatientId = db.Patient.FirstOrDefault(x => x.Email == viewModel.PatientEmail);
             if (ModelState.IsValid)
             {
                 

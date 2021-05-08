@@ -9,6 +9,7 @@ namespace SoftwareProject.Models.EntityFramework
     public class ViewModel3
     {   [Required]
         public string PatientName { get; set; }
+        public string PatientEmail{ get; set; }
         [Required(ErrorMessage = "Name is required")]
         public string IllnessName { get; set; }
         

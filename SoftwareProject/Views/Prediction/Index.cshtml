@@ -1,4 +1,5 @@
-﻿
+﻿@using SoftwareProject.Models.EntityFramework
+@model Patient
 @{
     Layout = null;
 }
@@ -23,7 +24,7 @@
     <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    
+
 
     <title>Diagnosis</title>
     <meta content="" name="description">
@@ -93,8 +94,8 @@
     <main id="main" style="margin-top:150px;">
         <div class="container-contact100">
             <div class="wrap-contact100">
-                
-                <form class="contact100-form validate-form" method="post"  >
+
+                <form class="contact100-form validate-form" method="post">
                     <span class="contact100-form-title" style="font-size:32px">Symptom Prediction</span>
                     <span class="contact100-form-title" id="output" style="color: #ff0000;">&nbsp;</span>
 
@@ -708,36 +709,49 @@
                     <div class="container-contact100-form-btn">
                         <div class="wrap-contact100-form-btn">
                             <div class="contact100-form-bgbtn"></div>
-                            <button class="contact100-form-btn" id='submit' type="submit" value="Submit">Submit</button>
+
+                            <button class="contact100-form-btn" id='submit' type="submit" value="Submit" onclick="location.href">Submit</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-      
-        
+
+
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script type="text/javascript">
+        <script type="text/javascript">
         $('#submit').click(function (event) {
             event.preventDefault();
-                
+
             var exist_response = $.ajax({ type: "GET", url: "https://heroku-diagnosis.herokuapp.com/predict", data: "Symptom_1=" + $('#Symptom_1').val() + "&Symptom_2=" + $('#Symptom_2').val() +
                 "&Symptom_3=" + $('#Symptom_3').val() + "&Symptom_4=" + $('#Symptom_4').val() + "&Symptom_5=" + $('#Symptom_5').val() + "&Symptom_6=" +
                 $('#Symptom_6').val() + "&Symptom_7=" + $('#Symptom_7').val() + "&Symptom_8=" + $('#Symptom_8').val() + "&Symptom_9=" + $('#Symptom_9').val() + "&Symptom_10=" + $('#Symptom_10').val() +
                 "&Symptom_11=" + $('#Symptom_11').val(),async: false}).responseText;
                  $('#output').text("According to the symptoms you have entered, you may have a " +exist_response + " disease. Make an appointment on our website to consult a doctor. " );
-            
+            var id = @Model.Id
+
+            $.ajax({
+                type:"POST",
+                url:"/Prediction/Index",
+                data: { variable:exist_response, id: id},
+                success: function (data) {
+                     window.location.href = data;
+                      }
+
+                });
+
         });
-            </script>
-        
+
+        </script>
+
     </main>
-    <div class="footer2" >
+    <div class="footer2">
 
 
 
 
         <!-- ======= Footer ======= -->
-        <footer >
+        <footer>
 
 
 

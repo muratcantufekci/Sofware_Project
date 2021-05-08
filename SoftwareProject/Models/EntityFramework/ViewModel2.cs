@@ -10,6 +10,7 @@ namespace SoftwareProject.Models
     public class ViewModel2
     {
         public Patient patients;
+        public Illness illness;
         public List<Doctor> doctors { get; set; }
         public List<Illness> ıllnesses { get; set; }
         public List<Hospital> hospitals { get; set; }
