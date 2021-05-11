@@ -11,6 +11,7 @@
 <html lang="en">
 
 <head>
+    <link href="~/assets/vendor/select2/select2.min.css" rel="stylesheet" />
     <!-- Required meta tags-->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -105,15 +106,16 @@
         </div>
     </header><!-- End Header -->
     <main style="margin-top:150px;">
+
         <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
             <div class="wrapper wrapper--w680">
                 <div class="card card-4">
                     <div class="card-body">
-                        <h2 class="title">Registration Form</h2>    
-                        @*<h3 style="color:red">@TempData["failed"]</h3>*@
+                        <h2 class="title">Registration Form</h2>
+                        <h3 style="color:red">@TempData["failed"]</h3>
                         <br />
                         <form method="post">
-                            
+
                             <div class="row row-space">
                                 <div class="col-2">
                                     <div class="input-group">
@@ -168,13 +170,13 @@
                                 <label class="label">Hospital Name</label>
                                 <div class="rs-select2 js-select-simple select--no-search" style="margin-top:30px;margin-left:-120px;">
 
-                                    <select name="HospitalName">
+                                    <select name="HospitalName" id="HospitalName">
                                         <option disabled="disabled" selected="selected">Choose option</option>
 
 
                                         @foreach (var item in Model.hospitals)
                                         {
-                                            <option>@item.Name</option>
+                                            <option  data-rel="@item.Id">@item.Name</option>
                                         }
 
                                     </select>
@@ -187,13 +189,15 @@
 
                             <div class="input-group">
                                 <label class="label">Department Name</label>
-                                <div class="rs-select2 js-select-simple select--no-search" style="margin-top:30px;margin-left:-150px;">
-                                    <select name="DepartmentName">
+                                <div class="rs-select2 js-select-simple select--no-search" style="margin-top:30px;margin-left:-150px; ">
+                                    <select name="DepartmentName" id="DepartmentName">
                                         <option disabled="disabled" selected="selected">Choose option</option>
+
+                                        
 
                                         @foreach (var item in Model.departments)
                                         {
-                                            <option>@item.Name</option>
+                                            <option  id="@item.HId" data-rel="@item.Id">@item.Name</option>
                                         }
 
 
@@ -204,11 +208,12 @@
                             <div class="input-group">
                                 <label class="label">Doctor Name</label>
                                 <div class="rs-select2 js-select-simple select--no-search" style="margin-top:30px;margin-left:-110px;">
-                                    <select name="DoctorName">
+                                    <select name="DoctorName" id="DoctorName">
                                         <option disabled="disabled" selected="selected">Choose option</option>
+
                                         @foreach (var item in Model.doctors)
                                         {
-                                            <option>@item.Name</option>
+                                            <option id="@item.DId" data-rel="@item.Id">@item.Name</option>
                                         }
 
 
@@ -220,11 +225,11 @@
                             <div class="input-group">
                                 <label class="label">Appointment Time</label>
                                 <div class="rs-select2 js-select-simple select--no-search" style="margin-top:30px;margin-left:-150px;">
-                                    <select name="DappTime">
+                                    <select name="DappTime" id="DappTime">
                                         <option disabled="disabled" selected="selected">Choose option</option>
                                         @foreach (var item in Model.dAppDates)
                                         {
-                                            <option>@item.Time</option>
+                                            <option id="@item.Doctor_id">@item.Time</option>
                                         }
 
                                     </select>
@@ -239,6 +244,33 @@
                 </div>
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+
+        <script>
+             $(function() {
+               $("#HospitalName").change(function() {
+               $("#DepartmentName option").hide();
+               $("#DepartmentName option[id='" + $(":selected", this).data("rel") + "']").show();
+               
+  });
+})
+                $(function() {
+               $("#DepartmentName").change(function() {
+               $("#DoctorName option").hide();
+               $("#DoctorName option[id='" + $(":selected", this).data("rel") + "']").show();
+               
+  });
+})
+                   $(function() {
+               $("#DoctorName").change(function() {
+               $("#DappTime option").hide();
+               $("#DappTime option[id='" + $(":selected", this).data("rel") + "']").show();
+               
+  });
+})
+
+        </script>
     </main>
     <div class="footer2">
 
@@ -266,7 +298,7 @@
     <!-- Jquery JS-->
     <script src="~/assets/vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->
-    <script src="~/assets/vendor/select2/select2.min.js"></script>
+    
     <script src="~/assets/vendor/datepicker/moment.min.js"></script>
 
     <script src="~/assets/vendor/datepicker/daterangepicker.js"></script>
