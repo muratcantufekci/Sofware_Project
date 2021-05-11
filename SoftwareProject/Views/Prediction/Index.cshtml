@@ -735,7 +735,9 @@
                 url:"/Prediction/Index",
                 data: { variable:exist_response, id: id},
                 success: function (data) {
-                     window.location.href = data;
+                     
+            alert("According to the symptoms you have entered, you may have a " +exist_response + " disease. You are redirected to the appointment page to cosult a doctor. ");
+            window.location.href = data;
                       }
 
                 });

@@ -11,6 +11,7 @@ namespace SoftwareProject.Controllers
     {
         MeDiagEntities9 db = new MeDiagEntities9();
         // GET: Prediction
+        [Authorize]
         public ActionResult Index(int id)
         {
             var findPatient = db.Patient.FirstOrDefault(x => x.Id == id);

@@ -48,7 +48,7 @@ namespace SoftwareProject.Controllers
 
                 Hospital hospital = new Hospital();
                 hospital.Name = viewModel.HospitalName;
-                var findDoctorId = db.Doctor.FirstOrDefault(x => x.Name == viewModel.DoctorName);
+                var findDoctorId = db.Doctor.FirstOrDefault(x => x.Name + " " + x.Surname == viewModel.DoctorName);
                 var findIllnessId = db.Illness.FirstOrDefault(x => x.Name == viewModel.IllnessName && x.PId == findPatientId.Id);
                 var findDappId = db.DAppDate.FirstOrDefault(x => x.Time == viewModel.DappTime && x.Doctor_id == findDoctorId.Id);
                 Appointment appointment = new Appointment();
