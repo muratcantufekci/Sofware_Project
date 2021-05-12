@@ -10,6 +10,7 @@ namespace SoftwareProject.Models.EntityFramework
     {   [Required]
         public string PatientName { get; set; }
         public string PatientEmail{ get; set; }
+        public string PatientSurname { get; set; }
         [Required(ErrorMessage = "Name is required")]
         public string IllnessName { get; set; }
         

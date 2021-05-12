@@ -13,10 +13,10 @@ namespace SoftwareProject.Models.EntityFramework
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MeDiagEntities9 : DbContext
+    public partial class MeDiagEntities10 : DbContext
     {
-        public MeDiagEntities9()
-            : base("name=MeDiagEntities9")
+        public MeDiagEntities10()
+            : base("name=MeDiagEntities10")
         {
         }
     
@@ -29,7 +29,6 @@ namespace SoftwareProject.Models.EntityFramework
         public virtual DbSet<Community> Community { get; set; }
         public virtual DbSet<DAppDate> DAppDate { get; set; }
         public virtual DbSet<Department> Department { get; set; }
-        public virtual DbSet<Discharge> Discharge { get; set; }
         public virtual DbSet<Doctor> Doctor { get; set; }
         public virtual DbSet<Hospital> Hospital { get; set; }
         public virtual DbSet<Illness> Illness { get; set; }

@@ -14,19 +14,10 @@ namespace SoftwareProject.Models.EntityFramework
     
     public partial class Op_Table
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Op_Table()
-        {
-            this.Discharge = new HashSet<Discharge>();
-        }
-    
         public int Id { get; set; }
         public int IllId { get; set; }
-        public int DId { get; set; }
         public string Name { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Discharge> Discharge { get; set; }
         public virtual Illness Illness { get; set; }
     }
 }

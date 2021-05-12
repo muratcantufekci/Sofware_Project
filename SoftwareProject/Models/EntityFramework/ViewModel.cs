@@ -13,6 +13,7 @@ namespace SoftwareProject.Models.EntityFramework
         public Illness ilness { get; set; }
         public Patient patient { get; set; }
         public Illness Illness { get; set; }
+        public string community { get; set; }
 
     }
 }

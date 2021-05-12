@@ -379,25 +379,18 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\EntityFramework\Model7.Context.tt">
+    <Content Include="Models\EntityFramework\Model8.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model7.edmx</DependentUpon>
-      <LastGenOutput>Model7.Context.cs</LastGenOutput>
+      <DependentUpon>Model8.edmx</DependentUpon>
+      <LastGenOutput>Model8.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EntityFramework\Model7.tt">
+    <Content Include="Models\EntityFramework\Model8.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model7.edmx</DependentUpon>
-      <LastGenOutput>Model7.cs</LastGenOutput>
+      <DependentUpon>Model8.edmx</DependentUpon>
+      <LastGenOutput>Model8.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\EntityFramework\Model7.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model7.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\EntityFramework\Model7.edmx.diagram">
-      <DependentUpon>Model7.edmx</DependentUpon>
-    </Content>
     <Content Include="assets\vendor\font-awesome-4.7\fonts\fontawesome-webfont.eot" />
     <Content Include="assets\vendor\font-awesome-4.7\fonts\fontawesome-webfont.ttf" />
     <Content Include="assets\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff" />
@@ -407,6 +400,13 @@
     <Content Include="assets\vendor\mdi-font\fonts\Material-Design-Iconic-Font.ttf" />
     <Content Include="assets\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff" />
     <Content Include="assets\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <EntityDeploy Include="Models\EntityFramework\Model8.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model8.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EntityFramework\Model8.edmx.diagram">
+      <DependentUpon>Model8.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -423,6 +423,7 @@
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OperationController.cs" />
     <Compile Include="Controllers\PredictionController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
@@ -430,49 +431,46 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Appointment.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Community.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\DAppDate.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Department.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EntityFramework\Discharge.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Doctor.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Hospital.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Illness.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model7.Context.cs">
+    <Compile Include="Models\EntityFramework\Model8.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model7.Context.tt</DependentUpon>
+      <DependentUpon>Model8.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model7.cs">
+    <Compile Include="Models\EntityFramework\Model8.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntityFramework\Model7.Designer.cs">
+    <Compile Include="Models\EntityFramework\Model8.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model7.edmx</DependentUpon>
+      <DependentUpon>Model8.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Op_Table.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\Patient.cs">
-      <DependentUpon>Model7.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\ViewModel.cs" />
     <Compile Include="Models\EntityFramework\ViewModel2.cs" />
@@ -500,6 +498,7 @@
     <Content Include="Views\Doctor\DoctorChat.cshtml" />
     <Content Include="Views\Prediction\Index.cshtml" />
     <Content Include="Views\Appointment\AppointmentIndex.cshtml" />
+    <Content Include="Views\Operation\OperationIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

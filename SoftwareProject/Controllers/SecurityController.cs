@@ -11,7 +11,7 @@ namespace SoftwareProject.Controllers
 {
     public class SecurityController : Controller
     {
-        MeDiagEntities9 db = new MeDiagEntities9();
+        MeDiagEntities10 db = new MeDiagEntities10();
         // GET: Security
         public ActionResult Login()
         {
@@ -90,7 +90,8 @@ namespace SoftwareProject.Controllers
                     patientToAdd.IdNumber = patient.IdNumber;
                     db.Patient.Add(patientToAdd);
                     db.SaveChanges();
-                    return RedirectToAction("Index", "Home");
+                    TempData["signup"] = "Your account succesfully created please login";
+                    return RedirectToAction("Login", "Security");
                 }
             }
             return View("SignUp");

@@ -20,16 +20,16 @@ namespace SoftwareProject.Models.EntityFramework
         {
             this.DAppDate = new HashSet<DAppDate>();
         }
-    
+
         public int Id { get; set; }
-        [Required(ErrorMessage ="Mail is required")]
+        [Required(ErrorMessage = "Mail is required")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public Nullable<int> DId { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DAppDate> DAppDate { get; set; }
         public virtual Department Department { get; set; }

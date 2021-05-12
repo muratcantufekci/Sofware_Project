@@ -3,6 +3,8 @@ using SoftwareProject.Models.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,7 +12,7 @@ namespace SoftwareProject.Controllers
 {
     public class AppointmentController : Controller
     {
-        MeDiagEntities9 db = new MeDiagEntities9();
+        MeDiagEntities10 db = new MeDiagEntities10();
         // GET: Appointment
         [Authorize]
         public ActionResult AppointmentIndex(int id)
@@ -59,6 +61,51 @@ namespace SoftwareProject.Controllers
                 db.Appointment.Add(appointment);
                 db.SaveChanges();
                 TempData["success"] = "Your appointment is succesfully created!";
+
+                if (viewModel.PatientEmail.Contains("hotmail"))
+                {
+                    MailMessage message = new MailMessage();
+                    SmtpClient client = new SmtpClient();
+                    client.Credentials = new System.Net.NetworkCredential("denemexyzd@hotmail.com", "deneme123");
+                    client.Port = 587;
+                    client.Host = "smtp.live.com";
+                    client.EnableSsl = true;
+                    message.To.Add(viewModel.PatientEmail);
+                    message.From = new MailAddress("denemexyzd@hotmail.com");
+                    message.Subject = "Appointment";
+                    message.Body = "Dear" + " " + viewModel.PatientName + " " + viewModel.PatientSurname + " " + "your appointment has been succesfully set up on " +
+                        viewModel.AppDate.ToLongDateString() + " " + "at " + viewModel.HospitalName + " hospital from the department of " + viewModel.DepartmentName + " to " + viewModel.DoctorName + " " +
+                        " doctor at " + viewModel.DappTime + ". We wish you a healty day!" ;
+                    client.Send(message);
+                }
+                else if (viewModel.PatientEmail.Contains("gmail"))
+                {
+                    var fromAddress = new MailAddress("denemexyzd@gmail.com");
+                    var toAddress = new MailAddress(viewModel.PatientEmail);
+                    const string fromPassword = "deneme123";
+                    const string subject = "Appointment";
+                    string body = "Dear" + " " + viewModel.PatientName + " " + viewModel.PatientSurname + " " + "your appointment has been succesfully set up on " +
+                        viewModel.AppDate.ToLongDateString() + " " + "at " + viewModel.HospitalName + " hospital from the department of " + viewModel.DepartmentName + " to " + viewModel.DoctorName + " " +
+                        " doctor at " + viewModel.DappTime + ". We wish you a healty day!";
+
+                    var smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                    };
+                    using (var message = new MailMessage(fromAddress, toAddress)
+                    {
+                        Subject = subject,
+                        Body = body
+                    })
+                    {
+                        smtp.Send(message);
+                    }
+                }
                 return RedirectToAction("PatientProfile", "Profile", findPatientId);
             }
             else

@@ -49,22 +49,27 @@
                                 <h5 class="card-title m-b-5">Appointments</h5>
 
                                 @{var count = 0; }
+
                                 @foreach (ViewModel viewModel in viewModels)
                                 {
-                                    if (viewModel.appointment.Date == DateTime.Today)
+                                    if (Model.Id == viewModel.dApp.Doctor_id)
                                     {
-                                        count++;
-                                    }
+                                        if (viewModel.appointment.Date == DateTime.Today)
+                                        {
+                                            count++;
+                                        }
 
+                                    }
                                 }
+
                                 <h1 style="margin-left:50px;">@count</h1>
 
-                               
+
                                 <div class="m-t-20 text-center">
                                     <div id="earnings"><canvas style="display: inline-block; width: 196px; height: 40px; vertical-align: top;" width="196" height="40"></canvas></div>
                                 </div>
 
-                                
+
 
 
 
@@ -92,7 +97,8 @@
                                             @{var temp = 0; }
                                             @foreach (ViewModel viewModel in viewModels)
                                             {
-                                                if (viewModel.appointment.Date >= DateTime.Now.AddDays(-30) && viewModel.patient.Id != temp)
+
+                                                if (viewModel.appointment.Date >= DateTime.Now.AddDays(-30) && viewModel.patient.Id != temp && Model.Id == viewModel.dApp.Doctor_id)
                                                 {
                                                    
                                                        <tr>
@@ -141,34 +147,38 @@
                                             </thead>
                                             <tbody>
                                                 @foreach (ViewModel viewModel in viewModels)
-                                                            {
-                                                                var time1 = DateTime.Now;
-                                                                var time2 = Convert.ToDateTime(viewModel.dApp.Time);
-                                                                int result = DateTime.Compare(time1, time2);
-                                                                if (viewModel.appointment.Date == DateTime.Today)
+                                                {
+                                                    var time1 = DateTime.Now;
+                                                    var time2 = Convert.ToDateTime(viewModel.dApp.Time);
+                                                    int result = DateTime.Compare(time1, time2);
+                                                    if (viewModel.appointment.Date == DateTime.Today)
+                                                    {
+                                                        if (Model.Id == viewModel.dApp.Doctor_id)
+                                                        {
+                                                            <tr>
+
+                                                                <td class="txt-oflo"><a href="/Operation/OperationIndex/@Model.Id/@viewModel.patient.Id ">@viewModel.patient.Name  @viewModel.patient.Surname</a></td>
+
+
+                                                                @if (result < 0)
                                                                 {
-                                                <tr>
+                                                                    <td><span class="label label-success label-rounded">Tamamlanmadı</span> </td>
+                                                                }
+                                                                @if (result > 0)
+                                                                {
+                                                                    <td><span class="label label-danger label-rounded">Tamamlandı</span> </td>
+                                                                }
 
-                                                    <td class="txt-oflo">@viewModel.patient.Name  @viewModel.patient.Surname</td>
-                                                    @if (result<0)
-                                                    {
-                                                        <td><span class="label label-success label-rounded">Tamamlanmadı</span> </td>
+                                                                <td class="txt-oflo">@viewModel.ilness.Name </td>
+                                                                <td class="txt-oflo">@String.Format("{0:dd/MM/yyyy}", viewModel.appointment.Date) @viewModel.dApp.Time</td>
+
+                                                            </tr>
+                                                        }
+
                                                     }
-                                                    @if (result > 0)
-                                                    {
-                                                        <td><span class="label label-danger label-rounded">Tamamlandı</span> </td>
-                                                    }
-
-                                                    <td class="txt-oflo">@viewModel.ilness.Name </td>
-                                                    <td class="txt-oflo">@String.Format("{0:dd/MM/yyyy}", viewModel.appointment.Date) @viewModel.dApp.Time</td>
-
-                                                </tr>
-                                                    }
-
                                                 }
 
-
-                                            </tbody>
+                                                </tbody>
                                         </table>
                                     </div>
                                 </div>
