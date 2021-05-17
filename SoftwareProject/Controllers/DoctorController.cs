@@ -31,22 +31,14 @@ namespace SoftwareProject.Controllers
             ViewData["Jointable"] = jointest;
             
             Doctor doctor = new Doctor();
-            if(TempData["getdoctorid"] == null)
-            {
-                doctor.Id = (int)TempData["senddoctorid"];
-            }
-            else
-            {
-                doctor.Id = (int)TempData["getdoctorid"];
-            }
-            
+            doctor.Id = DoctorHelper.id;
             
             return View(doctor);
         }
         public ActionResult DoctorProfile(int id)
         {
             var infoDoctor = db.Doctor.FirstOrDefault(x => x.Id == id);
-            TempData["senddoctorid"] = id;
+            
             return View(infoDoctor);
         }
         public ActionResult UpdateDoctor(Doctor doctor)

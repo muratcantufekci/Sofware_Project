@@ -32,7 +32,7 @@ namespace SoftwareProject.Controllers
                 if (patientInDb != null)
                 {
                     FormsAuthentication.SetAuthCookie(patientInDb.Name, false);
-                    TempData["getpatientid"] = getPatientId;
+                    PatientHelper.id = getPatientId;
                     return RedirectToAction("Index", "Home");
 
                 }
@@ -109,11 +109,12 @@ namespace SoftwareProject.Controllers
             {
                 string hashpassword = Crypto.SHA256(doctor.Password);
                 var doctorInDb = db.Doctor.FirstOrDefault(x => x.Email == doctor.Email && x.Password == hashpassword);
-                var getDoctorId = db.Doctor.SingleOrDefault(x => x.Email == doctor.Email).Id;
+                
                 if (doctorInDb != null)
                 {
+                    var getDoctorId = db.Doctor.SingleOrDefault(x => x.Email == doctor.Email).Id;
                     FormsAuthentication.SetAuthCookie(doctorInDb.Name, false);
-                    TempData["getdoctorid"] = getDoctorId;
+                    DoctorHelper.id = getDoctorId;
                     return RedirectToAction("DoctorIndex", "Doctor");
 
                 }

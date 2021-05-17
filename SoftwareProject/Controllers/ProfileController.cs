@@ -14,13 +14,20 @@ namespace SoftwareProject.Controllers
         // GET: Profile
         public ActionResult PatientProfile(int id)
         {
+           
             var infoPatient = db.Patient.FirstOrDefault(x => x.Id == id);
-            
+            PatientHelper.id = infoPatient.Id;
+
+
+
+
             return View(infoPatient);
         }
         public ActionResult UpdatePatient(Patient patient)
         {
-            var patientToUpdate = db.Patient.Find(patient.Id);
+            
+            Patient patientToUpdate = db.Patient.Find(patient.Id);
+            
             if(patientToUpdate == null)
             {
                return HttpNotFound();

@@ -21,9 +21,9 @@ namespace SoftwareProject.Controllers
         [HttpPost]
         public ActionResult Index(string variable,int id)
         {
-            var variableTrimmed = string.Concat(variable.Skip(2).Take(variable.Length - 4));
+            string[] variableTrimmed = variable.Split(' ');
             Illness ıllness = new Illness();
-            ıllness.Name = variableTrimmed;
+            ıllness.Name = variableTrimmed[0];
             ıllness.PId = id;
             db.Illness.Add(ıllness);
             db.SaveChanges();

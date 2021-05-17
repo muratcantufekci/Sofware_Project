@@ -445,6 +445,7 @@
     <Compile Include="Models\EntityFramework\Doctor.cs">
       <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EntityFramework\DoctorHelper.cs" />
     <Compile Include="Models\EntityFramework\Hospital.cs">
       <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
@@ -472,6 +473,7 @@
     <Compile Include="Models\EntityFramework\Patient.cs">
       <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EntityFramework\PatientHelper.cs" />
     <Compile Include="Models\EntityFramework\ViewModel.cs" />
     <Compile Include="Models\EntityFramework\ViewModel2.cs" />
     <Compile Include="Models\EntityFramework\ViewModel3.cs" />

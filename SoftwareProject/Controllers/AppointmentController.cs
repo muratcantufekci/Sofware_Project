@@ -17,16 +17,16 @@ namespace SoftwareProject.Controllers
         [Authorize]
         public ActionResult AppointmentIndex(int id)
         {
-            int findLastIllness = (int)TempData["getPID"];
+            int findLastIllness = PatientHelper.id;
             var model = new ViewModel2();
             model.doctors = db.Doctor.ToList();           
             model.hospitals = db.Hospital.ToList();
             model.departments = db.Department.ToList();
             model.dAppDates = db.DAppDate.ToList();
             model.patients = db.Patient.FirstOrDefault(x=>x.Id ==id);
-            model.illness = db.Illness.FirstOrDefault(x => x.Id == findLastIllness);
+            model.illness = db.Illness.OrderByDescending(x => x.Id).FirstOrDefault(x => x.PId == findLastIllness);
 
-            
+
 
             List<Hospital> hospital = db.Hospital.ToList();
 

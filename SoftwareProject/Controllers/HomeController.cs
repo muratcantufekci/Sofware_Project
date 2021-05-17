@@ -15,9 +15,12 @@ namespace SoftwareProject.Controllers
 
         public ActionResult Index()
         {
-            Patient patient = TempData["getid"] as Patient;
+            Patient patient = new Patient();
+            patient.Id = PatientHelper.id;
+
             return View(patient);
         }
+
     }
         
 }
