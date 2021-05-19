@@ -11,9 +11,12 @@ namespace SoftwareProject.Models.EntityFramework
         public string PatientName { get; set; }
         public string PatientEmail{ get; set; }
         public string PatientSurname { get; set; }
+        public int PatientId { get; set; }
+        public Op_Table operations { get; set; }
         [Required(ErrorMessage = "Name is required")]
         public string IllnessName { get; set; }
-        
+        public int IllnessId { get; set; }
+
         public string AppName { get; set; }
         [Required(ErrorMessage = "Appointment date is required")]
         public DateTime AppDate { get; set; }

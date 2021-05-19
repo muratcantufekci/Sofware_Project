@@ -14,6 +14,7 @@
           <Property Name="DId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Date" Type="date" />
+          <Property Name="PatientId" Type="int" />
         </EntityType>
         <EntityType Name="Community">
           <Key>
@@ -239,6 +240,7 @@
           <Property Name="DId" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="PatientId" Type="Int32" />
           <NavigationProperty Name="DAppDate" Relationship="Self.FK_Appointment_DAppDate" FromRole="Appointment" ToRole="DAppDate" />
           <NavigationProperty Name="Illness" Relationship="Self.FK_Appointment_Illness" FromRole="Appointment" ToRole="Illness" />
         </EntityType>
@@ -423,7 +425,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MeDiagEntities10" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MeDiagEntities11" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Appointment" EntityType="Self.Appointment" />
           <EntitySet Name="Community" EntityType="Self.Community" />
           <EntitySet Name="DAppDate" EntityType="Self.DAppDate" />
@@ -471,7 +473,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MeDiagModelStoreContainer" CdmEntityContainer="MeDiagEntities10">
+        <EntityContainerMapping StorageEntityContainer="MeDiagModelStoreContainer" CdmEntityContainer="MeDiagEntities11">
           <EntitySetMapping Name="Appointment">
             <EntityTypeMapping TypeName="MeDiagModel.Appointment">
               <MappingFragment StoreEntitySet="Appointment">
@@ -480,6 +482,7 @@
                 <ScalarProperty Name="DId" ColumnName="DId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

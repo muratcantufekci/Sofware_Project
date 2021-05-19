@@ -1,5 +1,5 @@
 ﻿
-@model SoftwareProject.Models.ViewModel2 
+@model SoftwareProject.Models.EntityFramework.ViewModel2
    @{ 
        List<SelectListItem> hospitalList = new List<SelectListItem>();
        foreach (var item in Model.hospitals)
@@ -44,7 +44,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
+    <title>Mediag</title>
 
     <!-- Icons font CSS-->
     <link href="~/assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -65,7 +65,7 @@
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo me-auto"><a style="text-decoration:none;" href="/Home/Index" style="text-decoration:none;">Diagnosis</a></h1>
+            <h1 class="logo me-auto"><a style="text-decoration:none;" href="/Home/Index" >Diagnosis</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -80,7 +80,7 @@
                             <a style="text-decoration:none;" href="#"><span>Profile</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
                                 <li><a style="text-decoration:none;" href="/Profile/PatientProfile/@Model.patients.Id">Informations</a></li>
-                                <li><a style="text-decoration:none;" href="#">Past Operations</a></li>
+                                <li><a style="text-decoration:none;" href="/Profile/PastOperations/@Model.patients.Id">My Appointments</a></li>
                                 <li><a style="text-decoration:none;" href="#">Chat With Doctor</a></li>
 
                             </ul>
@@ -112,7 +112,7 @@
             <div class="wrapper wrapper--w680">
                 <div class="card card-4">
                     <div class="card-body">
-                        <h2 class="title">Registration Form</h2>
+                        <h2 class="title">Appointment Form</h2>
                         <h3 style="color:red">@TempData["failed"]</h3>
                         <br />
                         <form method="post">
@@ -237,6 +237,7 @@
                                     <div class="select-dropdown"></div>
                                 </div>
                             </div>
+                            @Html.HiddenFor(x=>x.patients.Id)
                             <div class="p-t-15">
                                 <button class="btn btn--radius-2 btn--blue" type="submit">Make Appointment</button>
                             </div>
@@ -310,7 +311,7 @@
     <script src="~/assets/js/global.js"></script>
 
 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 
 
 </html>

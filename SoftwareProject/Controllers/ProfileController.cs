@@ -10,7 +10,7 @@ namespace SoftwareProject.Controllers
 {
     public class ProfileController : Controller
     {
-        MeDiagEntities10 db = new MeDiagEntities10();
+        MeDiagEntities11 db = new MeDiagEntities11();
         // GET: Profile
         public ActionResult PatientProfile(int id)
         {
@@ -64,6 +64,20 @@ namespace SoftwareProject.Controllers
             }
             
             
+        }
+        public ActionResult PastOperations(ViewModel3 viewModel)
+        {
+            var findIllnessId = db.Illness.OrderByDescending(x => x.Id).FirstOrDefault(x => x.Name == viewModel.IllnessName);
+            List<Appointment> appointmentList = db.Appointment.Where(x=>x.PatientId == PatientHelper.id).ToList();
+            List<Patient> patientList = db.Patient.Where(x => x.Id == PatientHelper.id).ToList();
+ 
+            ViewModel2 viewModel2 = new ViewModel2();
+            viewModel2.appointments = appointmentList;
+            viewModel2.patientss = patientList;
+            viewModel2.PID = PatientHelper.id;
+
+
+            return View(viewModel2);
         }
     }
 }

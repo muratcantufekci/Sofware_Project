@@ -10,7 +10,7 @@ namespace SoftwareProject.Controllers
 {
     public class DoctorController : Controller
     {
-        MeDiagEntities10 db = new MeDiagEntities10();
+        MeDiagEntities11 db = new MeDiagEntities11();
         // GET: Doctor
         public ActionResult DoctorIndex()
         {

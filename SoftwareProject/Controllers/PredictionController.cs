@@ -9,7 +9,7 @@ namespace SoftwareProject.Controllers
 {
     public class PredictionController : Controller
     {
-        MeDiagEntities10 db = new MeDiagEntities10();
+        MeDiagEntities11 db = new MeDiagEntities11();
         // GET: Prediction
         [Authorize]
         public ActionResult Index(int id)

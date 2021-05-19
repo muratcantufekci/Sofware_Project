@@ -12,7 +12,7 @@ namespace SoftwareProject.Controllers
     public class OperationController : Controller
     {
         // GET: Operation
-        MeDiagEntities10 db = new MeDiagEntities10();
+        MeDiagEntities11 db = new MeDiagEntities11();
         
         [Route("Operation/OperationIndex/{id}/{pid}")]
         public ActionResult OperationIndex(int id,int pid)

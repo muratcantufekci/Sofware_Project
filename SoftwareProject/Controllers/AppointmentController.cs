@@ -12,7 +12,7 @@ namespace SoftwareProject.Controllers
 {
     public class AppointmentController : Controller
     {
-        MeDiagEntities10 db = new MeDiagEntities10();
+        MeDiagEntities11 db = new MeDiagEntities11();
         // GET: Appointment
         [Authorize]
         public ActionResult AppointmentIndex(int id)
@@ -39,7 +39,7 @@ namespace SoftwareProject.Controllers
         public ActionResult AppointmentIndex(ViewModel3 viewModel)
         {
             var findPatientId = db.Patient.FirstOrDefault(x => x.Email == viewModel.PatientEmail);
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && viewModel.AppDate >= DateTime.Now)
             {
                 
                 Illness ıllness = new Illness();
@@ -47,71 +47,74 @@ namespace SoftwareProject.Controllers
                 ıllness.PId = findPatientId.Id;
                 db.Illness.Add(ıllness);
                 db.SaveChanges();
+                
 
                 Hospital hospital = new Hospital();
                 hospital.Name = viewModel.HospitalName;
                 var findDoctorId = db.Doctor.FirstOrDefault(x => x.Name + " " + x.Surname == viewModel.DoctorName);
-                var findIllnessId = db.Illness.FirstOrDefault(x => x.Name == viewModel.IllnessName && x.PId == findPatientId.Id);
+                var findIllnessId = db.Illness.OrderByDescending(x=>x.Id).FirstOrDefault(x => x.Name == viewModel.IllnessName && x.PId == findPatientId.Id);
                 var findDappId = db.DAppDate.FirstOrDefault(x => x.Time == viewModel.DappTime && x.Doctor_id == findDoctorId.Id);
                 Appointment appointment = new Appointment();
                 appointment.IllId = findIllnessId.Id;
                 appointment.DId = findDappId.Id;
                 appointment.Name = viewModel.IllnessName;
                 appointment.Date = viewModel.AppDate;
+                appointment.PatientId = PatientHelper.id;
                 db.Appointment.Add(appointment);
                 db.SaveChanges();
-                TempData["success"] = "Your appointment is succesfully created!";
+                //TempData["success"] = "Your appointment is succesfully created!";
 
-                if (viewModel.PatientEmail.Contains("hotmail"))
-                {
-                    MailMessage message = new MailMessage();
-                    SmtpClient client = new SmtpClient();
-                    client.Credentials = new System.Net.NetworkCredential("denemexyzd@hotmail.com", "deneme123");
-                    client.Port = 587;
-                    client.Host = "smtp.live.com";
-                    client.EnableSsl = true;
-                    message.To.Add(viewModel.PatientEmail);
-                    message.From = new MailAddress("denemexyzd@hotmail.com");
-                    message.Subject = "Appointment";
-                    message.Body = "Dear" + " " + viewModel.PatientName + " " + viewModel.PatientSurname + " " + "your appointment has been succesfully set up on " +
-                        viewModel.AppDate.ToLongDateString() + " " + "at " + viewModel.HospitalName + " hospital from the department of " + viewModel.DepartmentName + " to " + viewModel.DoctorName + " " +
-                        " doctor at " + viewModel.DappTime + ". We wish you a healty day!" ;
-                    client.Send(message);
-                }
-                else if (viewModel.PatientEmail.Contains("gmail"))
-                {
-                    var fromAddress = new MailAddress("denemexyzd@gmail.com");
-                    var toAddress = new MailAddress(viewModel.PatientEmail);
-                    const string fromPassword = "deneme123";
-                    const string subject = "Appointment";
-                    string body = "Dear" + " " + viewModel.PatientName + " " + viewModel.PatientSurname + " " + "your appointment has been succesfully set up on " +
-                        viewModel.AppDate.ToLongDateString() + " " + "at " + viewModel.HospitalName + " hospital from the department of " + viewModel.DepartmentName + " to " + viewModel.DoctorName + " " +
-                        " doctor at " + viewModel.DappTime + ". We wish you a healty day!";
+                //if (viewModel.PatientEmail.Contains("hotmail"))
+                //{
+                //    MailMessage message = new MailMessage();
+                //    SmtpClient client = new SmtpClient();
+                //    client.Credentials = new System.Net.NetworkCredential("mediagnosis@hotmail.com", "caglacopurkaya1999");
+                //    client.Port = 587;
+                //    client.Host = "smtp.live.com";
+                //    client.EnableSsl = true;
+                //    message.To.Add(viewModel.PatientEmail);
+                //    message.From = new MailAddress("mediagnosis@hotmail.com");
+                //    message.Subject = "Appointment";
+                //    message.Body = "Dear" + " " + viewModel.PatientName + " " + viewModel.PatientSurname + " " + "your appointment has been succesfully set up on " +
+                //        viewModel.AppDate.ToLongDateString() + " " + "at " + viewModel.HospitalName + " hospital from the department of " + viewModel.DepartmentName + " to " + viewModel.DoctorName + " " +
+                //        " doctor at " + viewModel.DappTime + ". We wish you a healty day!";
+                //    client.Send(message);
+                //}
+                //else if (viewModel.PatientEmail.Contains("gmail"))
+                //{
+                //    var fromAddress = new MailAddress("denemexyzd@gmail.com");
+                //    var toAddress = new MailAddress(viewModel.PatientEmail);
+                //    const string fromPassword = "deneme123";
+                //    const string subject = "Appointment";
+                //    string body = "Dear" + " " + viewModel.PatientName + " " + viewModel.PatientSurname + " " + "your appointment has been succesfully set up on " +
+                //        viewModel.AppDate.ToLongDateString() + " " + "at " + viewModel.HospitalName + " hospital from the department of " + viewModel.DepartmentName + " to " + viewModel.DoctorName + " " +
+                //        " doctor at " + viewModel.DappTime + ". We wish you a healty day!";
 
-                    var smtp = new SmtpClient
-                    {
-                        Host = "smtp.gmail.com",
-                        Port = 587,
-                        EnableSsl = true,
-                        DeliveryMethod = SmtpDeliveryMethod.Network,
-                        UseDefaultCredentials = false,
-                        Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-                    };
-                    using (var message = new MailMessage(fromAddress, toAddress)
-                    {
-                        Subject = subject,
-                        Body = body
-                    })
-                    {
-                        smtp.Send(message);
-                    }
-                }
-                return RedirectToAction("PatientProfile", "Profile", findPatientId);
+                //    var smtp = new SmtpClient
+                //    {
+                //        Host = "smtp.gmail.com",
+                //        Port = 587,
+                //        EnableSsl = true,
+                //        DeliveryMethod = SmtpDeliveryMethod.Network,
+                //        UseDefaultCredentials = false,
+                //        Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                //    };
+                //    using (var message = new MailMessage(fromAddress, toAddress)
+                //    {
+                //        Subject = subject,
+                //        Body = body
+                //    })
+                //    {
+                //        smtp.Send(message);
+                //    }
+                //}
+                viewModel.PatientId = PatientHelper.id;
+                return RedirectToAction("PastOperations", "Profile", viewModel);
             }
             else
             {
                 
-                TempData["failed"] = "Please fill all blanks!";
+                TempData["failed"] = "Please fill all blanks or select proper date!";
                 return RedirectToAction("AppointmentIndex", findPatientId.Id);
             }
             
