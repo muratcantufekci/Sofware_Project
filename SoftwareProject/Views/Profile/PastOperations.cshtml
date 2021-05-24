@@ -5,7 +5,7 @@
 }
 
 @{
-    IEnumerable<Appointment> appointments = ViewData["Jointable1"] as IEnumerable<Appointment>;
+    IEnumerable<ViewModel> viewModels = ViewData["TestTable"] as IEnumerable<ViewModel>;
 
 }
 
@@ -67,7 +67,7 @@
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo me-auto"><a style="text-decoration:none;" href="/Home/Index" >Diagnosis</a></h1>
+            <h1 class="logo me-auto"><a style="text-decoration:none;" href="/Home/Index">Diagnosis</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -111,35 +111,49 @@
     <main style="margin-top:150px;">
 
         <div>
+            <h6>@TempData["success"]</h6>
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th class="border-top-0">STATUS</th>
                         <th class="border-top-0">OPERATION NAME</th>
                         <th class="border-top-0">OPERATION DATE</th>
-                        
+                        <th class="border-top-0">OPERATION TIME</th>
+                        <th class="border-top-0">HOSPITAL NAME</th>
+                        <th class="border-top-0">HOSPITAL ADDRESS</th>
+
 
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach (var item in Model.appointments)
+                    @foreach (ViewModel viewModel in viewModels)
                     {
-                        if (Model.PID == PatientHelper.id)
+                        string stringToConvert = Convert.ToString(viewModel.appointment.Date.Value.ToShortDateString()) + " " + TimeSpan.Parse(viewModel.dApp.Time);
+                        var time1 = DateTime.Now;
+                        var time2 = Convert.ToDateTime(stringToConvert);
+                        int result = DateTime.Compare(time1, time2);
+                        if (viewModel.appointment.PatientId == PatientHelper.id)
                         {
                             <tr>
-                                <td>@item.Name</td>
-                                <td>@item.Date.Value.ToShortDateString()</td>
+                                @if (result < 0)
+                                {
+                                    <td><span class="label label-success label-rounded">Tamamlanmadı</span> </td>
+                                }
+                                @if (result > 0)
+                                {
+                                    <td><span class="label label-danger label-rounded">Tamamlandı</span> </td>
+                                }
+                                <td>@viewModel.appointment.Name</td>
+                                <td>@viewModel.appointment.Date.Value.ToShortDateString()</td>
+                                <td>@viewModel.dApp.Time</td>
+                                <td>@viewModel.hospital.Name</td>
+                                <td>@viewModel.hospital.Address</td>
 
 
                             </tr>
 
                         }
-
-
-
-
-
-
 
                     }
                 </tbody>

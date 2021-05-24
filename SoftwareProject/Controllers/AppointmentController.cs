@@ -62,7 +62,7 @@ namespace SoftwareProject.Controllers
                 appointment.PatientId = PatientHelper.id;
                 db.Appointment.Add(appointment);
                 db.SaveChanges();
-                //TempData["success"] = "Your appointment is succesfully created!";
+                TempData["success"] = "Your appointment is succesfully created!";
 
                 //if (viewModel.PatientEmail.Contains("hotmail"))
                 //{

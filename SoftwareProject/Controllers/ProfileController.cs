@@ -67,6 +67,21 @@ namespace SoftwareProject.Controllers
         }
         public ActionResult PastOperations(ViewModel3 viewModel)
         {
+            var testTable = from ap in db.Appointment
+                            join dapp in db.DAppDate on ap.DId equals dapp.Id
+                            join d in db.Doctor on dapp.Doctor_id equals d.Id
+                            join dep in db.Department on d.DId equals dep.Id
+                            join hosp in db.Hospital on dep.HId equals hosp.Id
+                            select new ViewModel
+                            {
+                                appointment = ap,
+                                dApp = dapp,
+                                doctor = d,
+                                department = dep,
+                                hospital = hosp,
+
+                            };
+            ViewData["TestTable"] = testTable;
             var findIllnessId = db.Illness.OrderByDescending(x => x.Id).FirstOrDefault(x => x.Name == viewModel.IllnessName);
             List<Appointment> appointmentList = db.Appointment.Where(x=>x.PatientId == PatientHelper.id).ToList();
             List<Patient> patientList = db.Patient.Where(x => x.Id == PatientHelper.id).ToList();

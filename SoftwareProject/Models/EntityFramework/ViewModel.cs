@@ -15,6 +15,8 @@ namespace SoftwareProject.Models.EntityFramework
         public Illness Illness { get; set; }
         public Op_Table op_Table { get; set; }
         public string community { get; set; }
+        public Department department { get; set; }
+        public Hospital hospital { get; set; }
 
     }
 }
