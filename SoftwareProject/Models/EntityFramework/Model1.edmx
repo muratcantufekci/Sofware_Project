@@ -425,7 +425,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MeDiagEntities11" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MeDiagEntities12" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Appointment" EntityType="Self.Appointment" />
           <EntitySet Name="Community" EntityType="Self.Community" />
           <EntitySet Name="DAppDate" EntityType="Self.DAppDate" />
@@ -473,7 +473,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MeDiagModelStoreContainer" CdmEntityContainer="MeDiagEntities11">
+        <EntityContainerMapping StorageEntityContainer="MeDiagModelStoreContainer" CdmEntityContainer="MeDiagEntities12">
           <EntitySetMapping Name="Appointment">
             <EntityTypeMapping TypeName="MeDiagModel.Appointment">
               <MappingFragment StoreEntitySet="Appointment">

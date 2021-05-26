@@ -114,6 +114,7 @@
                     <div class="card-body">
                         <h2 class="title">Appointment Form</h2>
                         <h3 style="color:red">@TempData["failed"]</h3>
+                        <h3 style="color:red">@TempData["fail"]</h3>
                         <br />
                         <form method="post">
 
@@ -177,7 +178,7 @@
 
                                         @foreach (var item in Model.hospitals)
                                         {
-                                            <option  data-rel="@item.Id">@item.Name</option>
+                                            <option data-rel="@item.Id">@item.Name</option>
                                         }
 
                                     </select>
@@ -194,11 +195,11 @@
                                     <select name="DepartmentName" id="DepartmentName">
                                         <option disabled="disabled" selected="selected">Choose option</option>
 
-                                        
+
 
                                         @foreach (var item in Model.departments)
                                         {
-                                            <option  id="@item.HId" data-rel="@item.Id">@item.Name</option>
+                                            <option id="@item.HId" data-rel="@item.Id">@item.Name</option>
                                         }
 
 
@@ -237,7 +238,7 @@
                                     <div class="select-dropdown"></div>
                                 </div>
                             </div>
-                            @Html.HiddenFor(x=>x.patients.Id)
+                            @Html.HiddenFor(x => x.patients.Id)
                             <div class="p-t-15">
                                 <button class="btn btn--radius-2 btn--blue" type="submit">Make Appointment</button>
                             </div>

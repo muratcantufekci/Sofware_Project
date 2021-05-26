@@ -11,7 +11,7 @@ namespace SoftwareProject.Controllers
 {
     public class SecurityController : Controller
     {
-        MeDiagEntities11 db = new MeDiagEntities11();
+        MeDiagEntities12 db = new MeDiagEntities12();
         // GET: Security
         public ActionResult Login()
         {
@@ -27,20 +27,22 @@ namespace SoftwareProject.Controllers
 
                 string hashpassword = Crypto.SHA256(patient.Password);
                 var patientInDb = db.Patient.FirstOrDefault(x => x.Email == patient.Email && x.Password == hashpassword);
-                var getPatientId = db.Patient.SingleOrDefault(x => x.Email == patient.Email).Id;
-
+            
                 if (patientInDb != null)
                 {
+                    var getPatientId = db.Patient.SingleOrDefault(x => x.Email == patient.Email).Id;
                     FormsAuthentication.SetAuthCookie(patientInDb.Name, false);
                     PatientHelper.id = getPatientId;
                     return RedirectToAction("Index", "Home");
 
                 }
+                
                 else
                 {
                     ViewBag.Message = "Wrong email or password";
                     return View();
                 }
+               
             }
             else
             {

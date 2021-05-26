@@ -156,6 +156,7 @@
             <div class="row">
                 <div class="col-5 align-self-center">
                     <h3>@ViewBag.Success</h3>
+                    <h3>@ViewBag.Fail</h3>
                 </div>
 
             </div>
@@ -201,13 +202,18 @@
                             {
 
                                 @ViewBag.UpdatedMessage
-                                <div class="form-group">
+                            <div class="form-group">
 
-                                    <div class="col-md-12">
-                                        @Html.LabelFor(x => x.patient.Name)
-                                        @Html.TextBoxFor(x => x.patient.Name, new { @class = "form-control", @readonly = "readonly" })
-                                    </div>
+
+                                <div class="col-md-12">
+                                    @Html.HiddenFor(x => x.patient.Email)
+                                    @Html.HiddenFor(x => x.patient.Email, new { @class = "form-control", @readonly = "readonly" })
                                 </div>
+                                <div class="col-md-12">
+                                    @Html.LabelFor(x => x.patient.Name)
+                                    @Html.TextBoxFor(x => x.patient.Name, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                            </div>
                                 <div class="form-group">
 
                                     <div class="col-md-12">
