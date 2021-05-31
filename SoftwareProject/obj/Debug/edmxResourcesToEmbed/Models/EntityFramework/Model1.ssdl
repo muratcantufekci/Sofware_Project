@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MeDiagModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IllId" Type="int" Nullable="false" />
+    <Property Name="DId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="PatientId" Type="int" />
+  </EntityType>
+  <EntityType Name="Community">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="IllId" Type="int" />
+  </EntityType>
+  <EntityType Name="DAppDate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Time" Type="nvarchar" MaxLength="10" />
+    <Property Name="Doctor_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="HId" Type="int" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DId" Type="int" />
+  </EntityType>
+  <EntityType Name="Hospital">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Illness">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Op_Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IllId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="350" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Appointment_DAppDate">
+    <End Role="DAppDate" Type="Self.DAppDate" Multiplicity="1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAppDate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="DId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Appointment_Illness">
+    <End Role="Illness" Type="Self.Illness" Multiplicity="1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Illness">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="IllId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Community_Illness">
+    <End Role="Illness" Type="Self.Illness" Multiplicity="0..1" />
+    <End Role="Community" Type="Self.Community" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Illness">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Community">
+        <PropertyRef Name="IllId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAppDate_Doctor">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="DAppDate" Type="Self.DAppDate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DAppDate">
+        <PropertyRef Name="Doctor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_Hospital">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="0..1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="HId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doctor_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Doctor">
+        <PropertyRef Name="DId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Illness_Patient">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Illness" Type="Self.Illness" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Illness">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Op_Table_Illness">
+    <End Role="Illness" Type="Self.Illness" Multiplicity="1" />
+    <End Role="Op_Table" Type="Self.Op_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Illness">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Op_Table">
+        <PropertyRef Name="IllId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MeDiagModelStoreContainer">
+    <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="diagnosis" store:Type="Tables" />
+    <EntitySet Name="Community" EntityType="Self.Community" Schema="diagnosis" store:Type="Tables" />
+    <EntitySet Name="DAppDate" EntityType="Self.DAppDate" Schema="diagnosis" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="diagnosis" store:Type="Tables" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="diagnosis" store:Type="Tables" />
+    <EntitySet Name="Hospital" EntityType="Self.Hospital" Schema="diagnosis" store:Type="Tables" />
+    <EntitySet Name="Illness" EntityType="Self.Illness" Schema="diagnosis" store:Type="Tables" />
+    <EntitySet Name="Op_Table" EntityType="Self.Op_Table" Schema="diagnosis" store:Type="Tables" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" Schema="diagnosis" store:Type="Tables" />
+    <AssociationSet Name="FK_Appointment_DAppDate" Association="Self.FK_Appointment_DAppDate">
+      <End Role="DAppDate" EntitySet="DAppDate" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Appointment_Illness" Association="Self.FK_Appointment_Illness">
+      <End Role="Illness" EntitySet="Illness" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Community_Illness" Association="Self.FK_Community_Illness">
+      <End Role="Illness" EntitySet="Illness" />
+      <End Role="Community" EntitySet="Community" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAppDate_Doctor" Association="Self.FK_DAppDate_Doctor">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="DAppDate" EntitySet="DAppDate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_Hospital" Association="Self.FK_Department_Hospital">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doctor_Department" Association="Self.FK_Doctor_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Doctor" EntitySet="Doctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Illness_Patient" Association="Self.FK_Illness_Patient">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Illness" EntitySet="Illness" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Op_Table_Illness" Association="Self.FK_Op_Table_Illness">
+      <End Role="Illness" EntitySet="Illness" />
+      <End Role="Op_Table" EntitySet="Op_Table" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MeDiagModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IllId" Type="Int32" Nullable="false" />
+    <Property Name="DId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="PatientId" Type="Int32" />
+    <NavigationProperty Name="DAppDate" Relationship="Self.FK_Appointment_DAppDate" FromRole="Appointment" ToRole="DAppDate" />
+    <NavigationProperty Name="Illness" Relationship="Self.FK_Appointment_Illness" FromRole="Appointment" ToRole="Illness" />
+  </EntityType>
+  <EntityType Name="Community">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IllId" Type="Int32" />
+    <NavigationProperty Name="Illness" Relationship="Self.FK_Community_Illness" FromRole="Community" ToRole="Illness" />
+  </EntityType>
+  <EntityType Name="DAppDate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Time" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Doctor_id" Type="Int32" />
+    <NavigationProperty Name="Appointment" Relationship="Self.FK_Appointment_DAppDate" FromRole="DAppDate" ToRole="Appointment" />
+    <NavigationProperty Name="Doctor" Relationship="Self.FK_DAppDate_Doctor" FromRole="DAppDate" ToRole="Doctor" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HId" Type="Int32" />
+    <NavigationProperty Name="Hospital" Relationship="Self.FK_Department_Hospital" FromRole="Department" ToRole="Hospital" />
+    <NavigationProperty Name="Doctor" Relationship="Self.FK_Doctor_Department" FromRole="Department" ToRole="Doctor" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DId" Type="Int32" />
+    <NavigationProperty Name="DAppDate" Relationship="Self.FK_DAppDate_Doctor" FromRole="Doctor" ToRole="DAppDate" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Doctor_Department" FromRole="Doctor" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="Hospital">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Department_Hospital" FromRole="Hospital" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="Illness">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Appointment" Relationship="Self.FK_Appointment_Illness" FromRole="Illness" ToRole="Appointment" />
+    <NavigationProperty Name="Community" Relationship="Self.FK_Community_Illness" FromRole="Illness" ToRole="Community" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK_Illness_Patient" FromRole="Illness" ToRole="Patient" />
+    <NavigationProperty Name="Op_Table" Relationship="Self.FK_Op_Table_Illness" FromRole="Illness" ToRole="Op_Table" />
+  </EntityType>
+  <EntityType Name="Op_Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IllId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Illness" Relationship="Self.FK_Op_Table_Illness" FromRole="Op_Table" ToRole="Illness" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Illness" Relationship="Self.FK_Illness_Patient" FromRole="Patient" ToRole="Illness" />
+  </EntityType>
+  <Association Name="FK_Appointment_DAppDate">
+    <End Role="DAppDate" Type="Self.DAppDate" Multiplicity="1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAppDate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="DId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Appointment_Illness">
+    <End Role="Illness" Type="Self.Illness" Multiplicity="1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Illness">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="IllId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Community_Illness">
+    <End Role="Illness" Type="Self.Illness" Multiplicity="0..1" />
+    <End Role="Community" Type="Self.Community" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Illness">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Community">
+        <PropertyRef Name="IllId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAppDate_Doctor">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="DAppDate" Type="Self.DAppDate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DAppDate">
+        <PropertyRef Name="Doctor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_Hospital">
+    <End Role="Hospital" Type="Self.Hospital" Multiplicity="0..1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hospital">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="HId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doctor_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Doctor">
+        <PropertyRef Name="DId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Illness_Patient">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Illness" Type="Self.Illness" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Illness">
+        <PropertyRef Name="PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Op_Table_Illness">
+    <End Role="Illness" Type="Self.Illness" Multiplicity="1" />
+    <End Role="Op_Table" Type="Self.Op_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Illness">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Op_Table">
+        <PropertyRef Name="IllId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MeDiagEntities12" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Appointment" EntityType="Self.Appointment" />
+    <EntitySet Name="Community" EntityType="Self.Community" />
+    <EntitySet Name="DAppDate" EntityType="Self.DAppDate" />
+    <EntitySet Name="Department" EntityType="Self.Department" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" />
+    <EntitySet Name="Hospital" EntityType="Self.Hospital" />
+    <EntitySet Name="Illness" EntityType="Self.Illness" />
+    <EntitySet Name="Op_Table" EntityType="Self.Op_Table" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" />
+    <AssociationSet Name="FK_Appointment_DAppDate" Association="Self.FK_Appointment_DAppDate">
+      <End Role="DAppDate" EntitySet="DAppDate" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Appointment_Illness" Association="Self.FK_Appointment_Illness">
+      <End Role="Illness" EntitySet="Illness" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Community_Illness" Association="Self.FK_Community_Illness">
+      <End Role="Illness" EntitySet="Illness" />
+      <End Role="Community" EntitySet="Community" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAppDate_Doctor" Association="Self.FK_DAppDate_Doctor">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="DAppDate" EntitySet="DAppDate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_Hospital" Association="Self.FK_Department_Hospital">
+      <End Role="Hospital" EntitySet="Hospital" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doctor_Department" Association="Self.FK_Doctor_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Doctor" EntitySet="Doctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Illness_Patient" Association="Self.FK_Illness_Patient">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Illness" EntitySet="Illness" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Op_Table_Illness" Association="Self.FK_Op_Table_Illness">
+      <End Role="Illness" EntitySet="Illness" />
+      <End Role="Op_Table" EntitySet="Op_Table" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
